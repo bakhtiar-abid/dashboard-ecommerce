@@ -8,7 +8,7 @@ import useAuth from './../../hooks/useAuth';
 const Navigation = () => {
     const { user, logOut } = useAuth();
     return (
-       <div>
+       <div >
           <Navbar
              className=""
              style={{
