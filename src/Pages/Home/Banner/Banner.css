@@ -1,6 +1,6 @@
 
 .top-banner {
-       background-image: url(https://i.shgcdn.com/e2840afd-22a3-4f7c-be7e-8cb3d7bb7fb2/-/format/auto/-/preview/3000x3000/-/quality/lighter/) !important;
+    background-image: url("../../../images/top-banner-background.webp") !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
     min-height: 873px !important;

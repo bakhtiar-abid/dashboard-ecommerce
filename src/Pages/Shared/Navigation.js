@@ -12,14 +12,12 @@ const Navigation = () => {
              className=""
              style={{
                 backgroundColor: "#241f1f",
-                
-              
              }}
              //  bg="dark"
              variant="dark"
              collapseOnSelect
              expand="lg"
-             sticky='top'
+             sticky="top"
           >
              <Container>
                 <Navbar.Brand href="/home">
@@ -49,6 +47,9 @@ const Navigation = () => {
                    </Nav.Link>
                    <Nav.Link to="/home" className="text-white">
                       EXPLORE
+                   </Nav.Link>
+                   <Nav.Link as={Link} to="/dashboard" className="text-white">
+                      DASHBOARD
                    </Nav.Link>
                    {user?.displayName ? (
                       <Nav.Link to="/myplans" className="text-white">

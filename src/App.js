@@ -7,6 +7,7 @@ import Navigation from "./Pages/Shared/Navigation";
 import AuthProvider from "./contexts/AuthProvider";
 import Home from './Pages/Home/Home/Home';
 import NewArrivals from "./Pages/Home/NewArrivals/NewArrivals";
+import Dashboard from "./Pages/Home/Dashboard/Dashboard";
 
 function App() {
    return (
@@ -18,12 +19,12 @@ function App() {
                   {/* <PrivateRoute path="/appointment">
                      <Appointment />
                   </PrivateRoute> */}
-                  <PrivateRoute path="/dashboard"></PrivateRoute>
+                  <Route path="/dashboard"> <Dashboard/> </Route>
                   <Route exact path="/home">
                      <Home></Home>
                   </Route>
                   <Route exact path="/new-arrivals">
-                     <NewArrivals/>
+                     <NewArrivals />
                   </Route>
                   <PrivateRoute exact path="/vehicle/:Id"></PrivateRoute>
                   <Route exact path="/login"></Route>
@@ -32,7 +33,7 @@ function App() {
                   <Route exact path="/">
                      <Home />
                   </Route>
-                  </Switch>
+               </Switch>
                {/* <Footer></Footer> */}
             </Router>
          </AuthProvider>
