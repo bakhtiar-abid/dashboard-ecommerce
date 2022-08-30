@@ -1,0 +1,8 @@
+.new-arrivals {
+    background-image: url("../../../images/sunset.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 350px;
+    background-position: center center;
+}
+    

@@ -1,8 +1,16 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import {  Container } from "react-bootstrap";
 import "./Banner.css";
+import { Link } from 'react-router-dom';
+
+
+
+
 
 const Banner = () => {
+
+
+
    return (
       <div className="top-banner">
          <Container>
@@ -26,10 +34,16 @@ const Banner = () => {
                </p>
             </div>
             <div>
-               <button className="py-[10px] px-[40px] bg-black border-white border-1">
-                  {" "}
-                  <span className="text-white text-[20px]">Shop New Arrivals</span>{" "}
-               </button>
+               <Link to="/new-arrivals" >
+                  <button
+                     className="py-[10px] px-[40px] bg-black border-white border-1"
+                     
+                  >
+                     <span className="text-white text-[20px]">
+                        Shop New Arrivals
+                     </span>
+                  </button>
+               </Link>
             </div>
             {/* Top Banner Section End */}
          </Container>

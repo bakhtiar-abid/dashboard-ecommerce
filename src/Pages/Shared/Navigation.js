@@ -2,13 +2,12 @@ import React from 'react';
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
 import logo from "../../images/logo.png"
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 import useAuth from './../../hooks/useAuth';
 
 const Navigation = () => {
     const { user, logOut } = useAuth();
     return (
-       <div >
+       <div>
           <Navbar
              className=""
              style={{
@@ -24,54 +23,47 @@ const Navigation = () => {
                 <Navbar.Brand href="/home">
                    <img
                       src={logo}
-                      width="100"
-                      height="100"
+                      width="75"
                       className="d-inline-block align-top"
                       alt="React Bootstrap logo"
                    />{" "}
-                   <div className="d-inline-block pt-4">
-                      N E W B R I G H T <br />E C O M M E R C E
+                   <div className="d-inline-block pt-2">
+                      <span className="">
+                         N E W B R I G H T <br />E C O M M E R C E
+                      </span>
                    </div>
                 </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
-                   <Nav.Link as={HashLink} to="/home" className="text-white">
+                   <Nav.Link as={Link} to="/home" className="text-white">
                       HOME
                    </Nav.Link>
-                   <Nav.Link as={HashLink} to="/home" className="text-white">
+                   <Nav.Link
+                      as={Link}
+                      to="/new-arrivals"
+                      className="text-white"
+                   >
                       SHOP
                    </Nav.Link>
-                   <Nav.Link as={HashLink} to="/home" className="text-white">
+                   <Nav.Link to="/home" className="text-white">
                       EXPLORE
                    </Nav.Link>
                    {user?.displayName ? (
-                      <Nav.Link
-                         as={HashLink}
-                         to="/myplans"
-                         className="text-white"
-                      >
+                      <Nav.Link to="/myplans" className="text-white">
                          My Plans
                       </Nav.Link>
                    ) : (
                       ""
                    )}
                    {user?.displayName ? (
-                      <Nav.Link
-                         as={HashLink}
-                         to="/manageplans"
-                         className="text-white"
-                      >
+                      <Nav.Link to="/manageplans" className="text-white">
                          Manage All Plans
                       </Nav.Link>
                    ) : (
                       ""
                    )}
                    {user?.displayName ? (
-                      <Nav.Link
-                         as={HashLink}
-                         to="/addplan"
-                         className="text-white"
-                      >
+                      <Nav.Link to="/addplan" className="text-white">
                          Add A Plan
                       </Nav.Link>
                    ) : (
