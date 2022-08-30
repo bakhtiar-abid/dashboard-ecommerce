@@ -1,6 +1,6 @@
 import React from 'react';
 import "./NewArrivals.css"
-import { Accordion, Card, Col, Container, Row, Button, CardGroup, Form } from 'react-bootstrap';
+import { Accordion, Card, Col, Container, Row, Form } from 'react-bootstrap';
 import api from "../../../hooks/useAxios";
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -335,12 +335,12 @@ const NewArrivals = () => {
                                         <Card.Body>
                                            <Card.Title>{`${detail.name}`}</Card.Title>
                                            <div className='flex justify-content-between py-5 relative' >
-                                              <div>
+                                              <div className='pt-2'>
                                                  <h1>
                                                     Price: $ {detail.price}
                                                  </h1>
                                               </div>
-                                              <div className='absolute left-[200px] top-[40px] '>
+                                              <div className=''>
                                                  <button style={{background: "black", borderRadius: "10px", color: "white"}} className="py-[2px] px-[10px]" >Buy Now</button>
                                               </div>
                                            </div>

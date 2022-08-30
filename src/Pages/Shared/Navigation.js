@@ -12,12 +12,14 @@ const Navigation = () => {
              className=""
              style={{
                 backgroundColor: "#241f1f",
+                
+              
              }}
              //  bg="dark"
              variant="dark"
-             sticky="top"
              collapseOnSelect
              expand="lg"
+             sticky='top'
           >
              <Container>
                 <Navbar.Brand href="/home">
