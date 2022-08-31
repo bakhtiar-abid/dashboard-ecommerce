@@ -8,6 +8,7 @@ import AuthProvider from "./contexts/AuthProvider";
 import Home from './Pages/Home/Home/Home';
 import NewArrivals from "./Pages/Home/NewArrivals/NewArrivals";
 import Dashboard from "./Pages/Home/Dashboard/Dashboard";
+import ProductDetail from "./Pages/Home/ProductDetail/ProductDetail";
 
 function App() {
    return (
@@ -25,6 +26,9 @@ function App() {
                   </Route>
                   <Route exact path="/new-arrivals">
                      <NewArrivals />
+                  </Route>
+                  <Route exact path="/product-detail/:id">
+                     <ProductDetail/>
                   </Route>
                   <PrivateRoute exact path="/vehicle/:Id"></PrivateRoute>
                   <Route exact path="/login"></Route>

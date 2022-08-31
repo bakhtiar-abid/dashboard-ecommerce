@@ -3,17 +3,26 @@ import "./NewArrivals.css"
 import { Accordion, Card, Col, Container, Row, Form } from 'react-bootstrap';
 import api from "../../../hooks/useAxios";
 import { useEffect } from 'react';
+import MoonLoader from "react-spinners/MoonLoader";
+
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const NewArrivals = () => {
     const [details, setDetails] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     console.log(details);
+
+
+
+
+    /* Fetching Data From Backend */
    useEffect(() => {
-    
+    setIsLoading(true);
       api.get("/products")
          .then((response) => {
             setDetails(response.data);
-
+            setIsLoading(false);
          })
 
          .catch((error) => {
@@ -36,6 +45,7 @@ const NewArrivals = () => {
              <Container>
                 <Row>
                    <Col sm={3}>
+                      {/* Product Filtering */}
                       <Accordion defaultActiveKey="0">
                          <Accordion.Item eventKey="0">
                             <Accordion.Header className="text-bold">
@@ -321,35 +331,61 @@ const NewArrivals = () => {
                          </Accordion.Item>
                       </Accordion>
                    </Col>
+                   {/* Product Details List */}
                    <Col sm={8}>
-                      <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 row-cols-sm-1 g-4">
-                         {details.map((detail, index) => {
-                            return (
-                               <>
-                                  <Col>
-                                     <Card>
-                                        <Card.Img
-                                           variant="top"
-                                           src={`${detail.img}`}
-                                        />
-                                        <Card.Body>
-                                           <Card.Title>{`${detail.name}`}</Card.Title>
-                                           <div className='flex justify-content-between py-5 relative' >
-                                              <div className='pt-2'>
-                                                 <h1>
-                                                    Price: $ {detail.price}
-                                                 </h1>
-                                              </div>
-                                              <div className=''>
-                                                 <button style={{background: "black", borderRadius: "10px", color: "white"}} className="py-[2px] px-[10px]" >Buy Now</button>
-                                              </div>
-                                           </div>
-                                        </Card.Body>
-                                     </Card>
-                                  </Col>
-                               </>
-                            );
-                         })}
+                      <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 row-cols-sm-1 g-4 ">
+                         {isLoading ? (
+                            <div className="pt-[20px]" style={{
+                              paddingLeft: "50%"
+                            }} >
+                               <MoonLoader loading size={120} />
+                            </div>
+                         ) : (
+                            <>
+                               {details.map((detail, index) => {
+                                  return (
+                                     <>
+                                        <Col key={index}>
+                                           <Card>
+                                              <Card.Img
+                                                 variant="top"
+                                                 src={`${detail.img}`}
+                                              />
+                                              <Card.Body>
+                                                 <Card.Title>{`${detail.name}`}</Card.Title>
+                                                 <div className="flex justify-content-between py-5 relative">
+                                                    <div className="pt-2">
+                                                       <h1>
+                                                          Price: ${detail.price}
+                                                       </h1>
+                                                    </div>
+                                                    <div className="">
+                                                       <Link
+                                                          to={`/product-detail/${detail?._id}`}
+                                                       >
+                                                          <button
+                                                             style={{
+                                                                background:
+                                                                   "black",
+                                                                borderRadius:
+                                                                   "10px",
+                                                                color: "white",
+                                                             }}
+                                                             className="py-[2px] px-[10px]"
+                                                          >
+                                                             Buy Now
+                                                          </button>
+                                                       </Link>
+                                                    </div>
+                                                 </div>
+                                              </Card.Body>
+                                           </Card>
+                                        </Col>
+                                     </>
+                                  );
+                               })}
+                            </>
+                         )}
                       </div>
                    </Col>
                 </Row>
