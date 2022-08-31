@@ -105,10 +105,9 @@ const Login = () => {
                                ""
                             )}
                          </div>
-                         <input
-                            className="mt-4 w-100 py-2 submit-btn border-0"
-                            type="submit"
-                         />
+                         <button className="mt-4 w-100 px-[5px] py-[15px] submit-btn border-0">
+                            Submit
+                         </button>
                       </form>
                    </Col>
                 </Row>

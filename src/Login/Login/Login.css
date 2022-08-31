@@ -7,11 +7,11 @@
     padding: 120px 0;
 }
 .login{
-    width: 700px;
+    width: 700px !important;
 }
 .submit-btn{
-    background-color:#F7B614;
-    font-weight: 600;
+    background-color:#F7B614 !important;
+    font-weight: 600 !important;
 }
 .login-form-left{
     background-color: rgba(38,43,72,.92);

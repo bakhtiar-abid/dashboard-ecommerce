@@ -78,10 +78,8 @@ const Register = () => {
                               ""
                            )}
                         </div>
-                        <input
-                           className="mt-4 w-100 py-2 submit-btn1 border-0"
-                           type="submit"
-                        />
+                        <button className="mt-4 w-100 px-[5px] py-[15px] submit-btn1 border-0">Register</button>
+                      
                      </form>
                   </Col>
                   <Col className="login-form-left1 p-5" md={5}>
