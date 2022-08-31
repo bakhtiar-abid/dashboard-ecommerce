@@ -1,19 +1,23 @@
 import React from 'react';
-
+import Swal from "sweetalert2";
+import { useFormik } from "formik";
 import { useEffect } from 'react';
 import api from "../../../hooks/useAxios";
   import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
   import {  faStar, faCircleDot } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Col, Accordion, Modal, Button } from 'react-bootstrap';
+import { Container, Col, Accordion, Modal } from 'react-bootstrap';
 
 const ProductDetail = () => {
    const { id } = useParams();
    const [detail, setDetails] = useState([]);
    console.log( "singleDetail", detail);
 
-   const [modalShow, setModalShow] = React.useState(false);
+   const [show, setShow] = useState(false);
+
+   const handleClose = () => setShow(false);
+   const handleShow = () => setShow(true);
 
    /* Fetching Data From Backend */
    useEffect(() => {
@@ -21,40 +25,69 @@ const ProductDetail = () => {
          .then((response) => {
             setDetails(response.data);
          })
-
+         
          .catch((error) => {
             console.error("There was an error!", error);
          });
    }, [id]);
 
-   /* Modal */
-   function MyVerticallyCenteredModal(props) {
-      return (
-         <Modal
-            {...props}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-         >
-            <Modal.Header closeButton>
-               <Modal.Title id="contained-modal-title-vcenter">
-                  Modal heading
-               </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-               <h4>Centered Modal</h4>
-               <p>
-                  Cras mattis consectetur purus sit amet fermentum. Cras justo
-                  odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
-                  risus, porta ac consectetur ac, vestibulum at eros.
-               </p>
-            </Modal.Body>
-            <Modal.Footer>
-               <button onClick={props.onHide} >Close</button>
-            </Modal.Footer>
-         </Modal>
-      );
-   }
+
+   const [error, setError] = useState("");
+
+   const handleForm = useFormik({
+      initialValues: {
+         name: "",
+         email: "",
+         phone: "",
+         address: "",
+         price: detail.price ? detail.price : "",
+         
+      },
+      onSubmit: (values) => {
+         if (
+            values.name !== "" &&
+            values.email !== "" &&
+            values.phone !== "" &&
+            values.address !== "" &&
+            values.price !== ""
+         ) {
+            
+            // setStoreData({ ...storeData});
+            api.post("/placeorder", values).then((res) => {
+               if (res.data.acknowledged) {
+                  Swal.fire(
+                     "Success!",
+                     `New Order has been added! `,
+                     "success"
+                  ).then((res) => {
+                     //  history.push("/pay-salary");
+                  });
+                  setShow(false);
+                  setError("");
+                  handleForm.resetForm();
+               }
+            });
+         } else if (values.name === "") {
+            setError("Name is required! ");
+         } else if (values.email === "") {
+            setError("Email is required! ");
+         } else if (values.phone === "") {
+            setError("phone number is required! ");
+         } else if (values.address === "") {
+            setError("Adress is required! ");
+         } else if (values.price === "") {
+            setError("Price is required! ");
+         }
+      },
+      enableReinitialize: true,
+   });
+
+//    /* Modal */
+//    function MyVerticallyCenteredModal(props) {
+//       return (
+        
+//       );
+//    }
    return (
       <div>
          <Container className="py-[40px]">
@@ -93,14 +126,14 @@ const ProductDetail = () => {
                      <button
                         className="bg-black text-white lg:px-[200px] lg:py-[10px] sm:px-[100px] sm:py-[5px] px-[100px] py-[5px]"
                         style={{ borderRadius: "15px" }}
-                        onClick={() => setModalShow(true)}
+                        onClick={handleShow}
                      >
                         Proceed to buy
                      </button>
-                     <MyVerticallyCenteredModal
+                     {/* <MyVerticallyCenteredModal
                         show={modalShow}
                         onHide={() => setModalShow(false)}
-                     />
+                     /> */}
                   </div>
                   <div>
                      <p>{detail.description}</p>
@@ -243,6 +276,129 @@ const ProductDetail = () => {
                </Col>
             </div>
             {/* Modal */}
+            <Modal
+               // {...props}
+               show={show}
+               size="md"
+               aria-labelledby="contained-modal-title-vcenter"
+               centered
+               onHide={handleClose}
+            >
+               <Modal.Header closeButton>
+                  <Modal.Title id="contained-modal-title-vcenter">
+                     Personal Information
+                  </Modal.Title>
+               </Modal.Header>
+               <Modal.Body>
+                  <div className="flex justify-content-center align-items-center ">
+                     <form onSubmit={handleForm.handleSubmit}>
+                        <div className="mb-4 pt-[30px] text-[13px]">
+                           <div className='flex justify-content-between pb-3' >
+                              <div>
+                                 <label
+                                    className="text-[#979199] "
+                                    
+                                 >
+                                    Name
+                                 </label>
+                              </div>
+                              <div>
+                                 <span className="text-danger">{error}</span>
+                              </div>
+                           </div>
+                           <input
+                              className="user-input w-[355px] h-[40px] p-2"
+                              type="text"
+                              value={handleForm.values.name}
+                              onChange={handleForm.handleChange}
+                              name="name"
+                           />
+                        </div>
+                        <div className="mb-4  text-[13px]">
+                           <label className="text-[#979199] pb-3">Email:</label>
+                           <br />
+                           <input
+                              className="user-input w-[355px] h-[40px] p-2"
+                              type="text"
+                              value={handleForm.values.email}
+                              onChange={handleForm.handleChange}
+                              name="email"
+                           />
+                        </div>
+                        <div className="mb-4  text-[13px]">
+                           <label
+                              className="text-[#979199] pb-3"
+                              for="username"
+                           >
+                              Phone
+                           </label>
+                           <br />
+
+                           <input
+                              className="user-input w-[355px] h-[40px] p-2"
+                              type="text"
+                              value={handleForm.values.phone}
+                              onChange={handleForm.handleChange}
+                              name="phone"
+                           />
+                        </div>
+                        <div className="mb-4  text-[13px]">
+                           <label
+                              className="text-[#979199] pb-3"
+                              for="username"
+                           >
+                              Address
+                           </label>
+                           <br />
+
+                           <input
+                              className="user-input w-[355px] h-[40px] p-2"
+                              type="text"
+                              value={handleForm.values.address}
+                              onChange={handleForm.handleChange}
+                              name="address"
+                           />
+                        </div>
+                        <div className="mb-4  text-[13px]">
+                           <label
+                              className="text-[#979199] pb-3"
+                              for="username"
+                           >
+                              Price
+                           </label>
+                           <br />
+
+                           <input
+                              className="user-input w-[355px] h-[40px] p-2"
+                              type="number"
+                              value={handleForm.values.price}
+                              onChange={handleForm.handleChange}
+                              step="0.01"
+                              name="price"
+                              min="0"
+                           />
+                        </div>
+                        <div className="pt-[20px]">
+                           <button
+                              className="bg-black text-white lg:px-[130px] lg:py-[10px] sm:px-[100px] sm:py-[5px] px-[100px] py-[5px]"
+                              style={{ borderRadius: "15px" }}
+                           >
+                              Submit info
+                           </button>
+                        </div>
+                     </form>
+                  </div>
+               </Modal.Body>
+               <Modal.Footer>
+                  <button
+                     className="bg-black text-white lg:px-[50px] lg:py-[10px] sm:px-[100px] sm:py-[5px] px-[100px] py-[5px]"
+                     onClick={handleClose}
+                     style={{ borderRadius: "15px" }}
+                  >
+                     Close
+                  </button>
+               </Modal.Footer>
+            </Modal>
          </Container>
       </div>
    );

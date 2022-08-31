@@ -89,3 +89,8 @@ body {
    background: #afafaf;
 }
 
+.user-input {
+   border: 0.5px solid #cbc7cc;
+   box-sizing: border-box;
+   border-radius: 5px;
+}
