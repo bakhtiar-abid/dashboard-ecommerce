@@ -6,12 +6,14 @@ import api from "../../../hooks/useAxios";
   import {  faStar, faCircleDot } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Col, Accordion } from 'react-bootstrap';
+import { Container, Col, Accordion, Modal, Button } from 'react-bootstrap';
 
 const ProductDetail = () => {
    const { id } = useParams();
    const [detail, setDetails] = useState([]);
    console.log( "singleDetail", detail);
+
+   const [modalShow, setModalShow] = React.useState(false);
 
    /* Fetching Data From Backend */
    useEffect(() => {
@@ -24,6 +26,35 @@ const ProductDetail = () => {
             console.error("There was an error!", error);
          });
    }, [id]);
+
+   /* Modal */
+   function MyVerticallyCenteredModal(props) {
+      return (
+         <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+         >
+            <Modal.Header closeButton>
+               <Modal.Title id="contained-modal-title-vcenter">
+                  Modal heading
+               </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+               <h4>Centered Modal</h4>
+               <p>
+                  Cras mattis consectetur purus sit amet fermentum. Cras justo
+                  odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                  risus, porta ac consectetur ac, vestibulum at eros.
+               </p>
+            </Modal.Body>
+            <Modal.Footer>
+               <button onClick={props.onHide} >Close</button>
+            </Modal.Footer>
+         </Modal>
+      );
+   }
    return (
       <div>
          <Container className="py-[40px]">
@@ -62,9 +93,14 @@ const ProductDetail = () => {
                      <button
                         className="bg-black text-white lg:px-[200px] lg:py-[10px] sm:px-[100px] sm:py-[5px] px-[100px] py-[5px]"
                         style={{ borderRadius: "15px" }}
+                        onClick={() => setModalShow(true)}
                      >
                         Proceed to buy
                      </button>
+                     <MyVerticallyCenteredModal
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                     />
                   </div>
                   <div>
                      <p>{detail.description}</p>
@@ -206,6 +242,7 @@ const ProductDetail = () => {
                   </div>
                </Col>
             </div>
+            {/* Modal */}
          </Container>
       </div>
    );
