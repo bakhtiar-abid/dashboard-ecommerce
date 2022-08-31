@@ -10,6 +10,7 @@ import NewArrivals from "./Pages/Home/NewArrivals/NewArrivals";
 import Dashboard from "./Pages/Home/Dashboard/Dashboard";
 import ProductDetail from "./Pages/Home/ProductDetail/ProductDetail";
 import Login from "./Login/Login/Login";
+import Register from "./Login/Register/Register";
 
 function App() {
    return (
@@ -32,6 +33,9 @@ function App() {
                   <PrivateRoute exact path="/vehicle/:Id"></PrivateRoute>
                   <Route exact path="/login">
                      <Login></Login>
+                  </Route>
+                  <Route exact path="/register">
+                     <Register/>
                   </Route>
 
                   <Route exact path="/register"></Route>

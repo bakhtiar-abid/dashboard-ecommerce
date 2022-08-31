@@ -1,0 +1,72 @@
+.login-form1{
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../image/food-delivery-img\ \(1\).jpg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding: 120px 0;
+}
+.login1{
+    width: 700px;
+}
+.submit-btn1{
+    background-color: rgb(17, 22, 6);
+    font-weight: 600;
+    color: white;
+}
+.login-form-left1{
+    background-color: rgba(7, 9, 15, 0.822);
+    height: 458px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+    .login-form-logo1{
+        width: 140px;
+    }
+    .facebook-btn1{
+        background-color: #3B5998;
+        opacity: 4;
+        width: 208px;
+        height: 33px;
+        border-radius: 6px;
+    }
+    .twitter-btn1{
+        background-color: #05A0DD;
+        opacity: 4;
+        width: 208px;
+        height: 33px;
+        border-radius: 6px;
+    }
+    .google-btn1{
+        background-color: #B42F16;
+        opacity: 4;
+        width: 208px;
+        height: 33px;
+        border-radius: 6px;
+    }
+
+.login-form-right1{
+    background-color: white;
+    height: 458px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.login-form-right1 > h4{
+    color: #101c49;
+}
+.signup-toggle-btn, .forgot-btn{
+    color: #F7B614;
+}
+.signup-toggle-btn:hover{
+    text-decoration: underline;
+}
+.forgot-btn:hover{
+    text-decoration: underline;
+}
+.login-back1{
+    background-image: url("../../images/register.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    min-height: 873px !important;
+    background-position: center center !important;
+}

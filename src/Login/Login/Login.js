@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { FaFacebookF, FaTwitter, FaGofore } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import useAuth from './../../hooks/useAuth';
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import "./Login.css"
@@ -37,7 +37,7 @@ const Login = () => {
                 <Row>
                    <Col className="login-form-left p-5" md={5}>
                       <div>
-                         <img className="login-form-logo" src=""/>
+                         <img className="login-form-logo" src="" />
                          <p className="text-white py-4">
                             Login using social media to get quick access
                          </p>
@@ -67,9 +67,11 @@ const Login = () => {
                       <h4 className="fw-bold">Login to your account</h4>
                       <p>
                          Don’t have an account?{" "}
-                         <button className="border-0 bg-transparent signup-toggle-btn">
-                            <small>Sign Up Free!</small>
-                         </button>
+                         <Link to={"/register"}>
+                            <button className="border-0 bg-transparent signup-toggle-btn">
+                               <small>Sign Up Free!</small>
+                            </button>
+                         </Link>
                       </p>
 
                       <form onSubmit={handleLoginSubmit}>
