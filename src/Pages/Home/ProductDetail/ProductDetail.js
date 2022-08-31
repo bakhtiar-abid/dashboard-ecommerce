@@ -36,11 +36,13 @@ const ProductDetail = () => {
 
    const handleForm = useFormik({
       initialValues: {
+        itemName: detail.name? detail.name : "",
          name: "",
          email: "",
          phone: "",
          address: "",
          price: detail.price ? detail.price : "",
+         status: "pending"
          
       },
       onSubmit: (values) => {
@@ -293,14 +295,24 @@ const ProductDetail = () => {
                   <div className="flex justify-content-center align-items-center ">
                      <form onSubmit={handleForm.handleSubmit}>
                         <div className="mb-4 pt-[30px] text-[13px]">
-                           <div className='flex justify-content-between pb-3' >
+                           <div className=" pb-3">
                               <div>
-                                 <label
-                                    className="text-[#979199] "
-                                    
-                                 >
-                                    Name
+                                 <label className="text-[#979199] pb-2">
+                                    Item Name
                                  </label>
+                              </div>
+                           
+                              <input
+                                 className="user-input w-[355px] h-[40px] p-2"
+                                 type="text"
+                                 value={handleForm.values.itemName}
+                                 onChange={handleForm.handleChange}
+                                 name="itemName"
+                              />
+                           </div>
+                           <div className="flex justify-content-between pb-3">
+                              <div>
+                                 <label className="text-[#979199] ">Name</label>
                               </div>
                               <div>
                                  <span className="text-danger">{error}</span>

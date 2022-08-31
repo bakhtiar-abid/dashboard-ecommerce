@@ -338,7 +338,7 @@ const NewArrivals = () => {
                             <div className="pt-[20px]" style={{
                               paddingLeft: "50%"
                             }} >
-                               <MoonLoader loading size={120} />
+                               <MoonLoader loading size={80} />
                             </div>
                          ) : (
                             <>

@@ -9,6 +9,7 @@ import Home from './Pages/Home/Home/Home';
 import NewArrivals from "./Pages/Home/NewArrivals/NewArrivals";
 import Dashboard from "./Pages/Home/Dashboard/Dashboard";
 import ProductDetail from "./Pages/Home/ProductDetail/ProductDetail";
+import Login from "./Login/Login/Login";
 
 function App() {
    return (
@@ -17,10 +18,8 @@ function App() {
             <Router>
                <Navigation />
                <Switch>
-                  {/* <PrivateRoute path="/appointment">
-                     <Appointment />
-                  </PrivateRoute> */}
-                  <Route path="/dashboard"> <Dashboard/> </Route>
+                 
+                  <PrivateRoute path="/dashboard"> <Dashboard/> </PrivateRoute>
                   <Route exact path="/home">
                      <Home></Home>
                   </Route>
@@ -31,7 +30,9 @@ function App() {
                      <ProductDetail/>
                   </Route>
                   <PrivateRoute exact path="/vehicle/:Id"></PrivateRoute>
-                  <Route exact path="/login"></Route>
+                  <Route exact path="/login">
+                     <Login></Login>
+                  </Route>
 
                   <Route exact path="/register"></Route>
                   <Route exact path="/">

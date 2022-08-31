@@ -3,9 +3,19 @@ import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
 import logo from "../../images/logo.png"
 import { Link } from "react-router-dom";
 import useAuth from './../../hooks/useAuth';
+import {
+   useHistory,
+   useLocation,
+} from "react-router-dom";
 
 const Navigation = () => {
-    const { user, logOut } = useAuth();
+    const { user, logout } = useAuth();
+    
+      const location = useLocation();
+      const history = useHistory();
+     const LogOut = () => {
+        logout(location, history);
+     };
     return (
        <div>
           <Navbar
@@ -34,7 +44,7 @@ const Navigation = () => {
                    </div>
                 </Navbar.Brand>
                 <Navbar.Toggle />
-                <Navbar.Collapse className="justify-content-end">
+                <Navbar.Collapse className="justify-content pl-[10px]">
                    <Nav.Link as={Link} to="/home" className="text-white">
                       HOME
                    </Nav.Link>
@@ -48,19 +58,22 @@ const Navigation = () => {
                    <Nav.Link to="/home" className="text-white">
                       EXPLORE
                    </Nav.Link>
-                   <Nav.Link as={Link} to="/dashboard" className="text-white">
+                   {
+                     user?.email ? (  <Nav.Link as={Link} to="/dashboard" className="text-white">
                       DASHBOARD
-                   </Nav.Link>
-                   {user?.displayName ? (
+                   </Nav.Link>) : ""
+                   }
+                 
+                   {/* {user?.displayName ? (
                       <Nav.Link to="/myplans" className="text-white">
-                         My Plans
+                        MYP LANS
                       </Nav.Link>
                    ) : (
                       ""
                    )}
                    {user?.displayName ? (
                       <Nav.Link to="/manageplans" className="text-white">
-                         Manage All Plans
+                         MANAGE PLANS
                       </Nav.Link>
                    ) : (
                       ""
@@ -71,16 +84,16 @@ const Navigation = () => {
                       </Nav.Link>
                    ) : (
                       ""
-                   )}
+                   )} */}
 
                    {user?.displayName ? (
-                      <Button
+                      <Nav.Link
                          className="text-white"
-                         onClick={logOut}
+                         onClick={LogOut}
                          variant=""
                       >
-                         Logout
-                      </Button>
+                         LOGOUT
+                      </Nav.Link>
                    ) : (
                       <div className="">
                          <Nav.Link as={Link} to="/login" className="text-white">
@@ -88,23 +101,23 @@ const Navigation = () => {
                          </Nav.Link>
                       </div>
                    )}
-                   <Navbar.Text className="log-in">
+                   <Navbar.Text className="log-in d-inline-block">
                       {user?.displayName ? (
-                         <span className="me-2 text-white">Signed in as:</span>
+                         <span className="me-2 text-white ">Signed in as:</span>
                       ) : (
                          ""
                       )}
-                      <a href="#login">
+                      <div className="d-inline-block">
                          {user?.displayName}{" "}
                          <img
                             src={user?.photoURL}
-                            className="rounded-circle ms-3"
+                            className="rounded-circle ms-3 d-inline-block"
                             style={{ width: "55px" }}
                             alt=""
                          />
-                      </a>
+                      </div>
                    </Navbar.Text>
-                   <Form className="d-flex">
+                   <Form className="d-flex pl-[200px]">
                       <Form.Control
                          type="search"
                          placeholder="Search"
