@@ -34,7 +34,7 @@ const useFirebase = () => {
             const newUser = { email, displayName: name };
             setUser(newUser);
             // save user to the database
-            saveUser(email, name, password, "PUT");
+            saveUser(email, name, "PUT");
             // send name to firebase after creation
             updateProfile(auth.currentUser, {
                displayName: name,
@@ -69,7 +69,7 @@ const useFirebase = () => {
       signInWithPopup(auth, googleProvider)
          .then((result) => {
             const user = result.user;
-            saveUser(user?.email, user?.displayName, "POST");
+            saveUser(user?.email, user?.displayName, "PUT");
             setAuthError("");
             const destination = location?.state?.from || "/";
             history.replace(destination);
@@ -121,8 +121,8 @@ const useFirebase = () => {
          .finally(() => setIsLoading(false));
    };
 
-   const saveUser = (email, displayName, password, method) => {
-      const user = { email, displayName, password };
+   const saveUser = (email, displayName, method) => {
+      const user = { email, displayName};
       fetch("https://rocky-plateau-24807.herokuapp.com/users", {
          method: method,
          headers: {

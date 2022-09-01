@@ -166,7 +166,7 @@ const Dashboard = () => {
                                        Manage Orders
                                     </NavLink>
                                  </div>
-                                 <div>
+                                 {/* <div>
                                     <RiAdminFill className="d-inline-block text-white" />
                                     <NavLink
                                        className="text-white text-decoration-none my-5 pl-2"
@@ -174,9 +174,9 @@ const Dashboard = () => {
                                     >
                                        Make Admin
                                     </NavLink>
-                                 </div>
+                                 </div> */}
 
-                                 <div>
+                                 {/* <div>
                                     <MdModeEditOutline className="d-inline-block text-white"></MdModeEditOutline>
                                     <NavLink
                                        className="text-white text-decoration-none my-5 pl-2"
@@ -184,7 +184,7 @@ const Dashboard = () => {
                                     >
                                        Make Editor
                                     </NavLink>
-                                 </div>
+                                 </div> */}
 
                                  <div>
                                     <MdAddCircleOutline className="d-inline-block text-white" />
@@ -196,7 +196,7 @@ const Dashboard = () => {
                                     </NavLink>
                                  </div>
 
-                                 <div>
+                                 {/* <div>
                                     <MdProductionQuantityLimits className="d-inline-block text-white"></MdProductionQuantityLimits>
                                     <NavLink
                                        className="text-white text-decoration-none my-5 pl-2"
@@ -204,7 +204,7 @@ const Dashboard = () => {
                                     >
                                        Manage Product
                                     </NavLink>
-                                 </div>
+                                 </div> */}
 
                                  <br />
                                  <br />
@@ -295,11 +295,8 @@ const Dashboard = () => {
                            <AdminRoute path={`${path}/manageProduct`}>
                               <ManageProduct />
                            </AdminRoute>
-                           <AdminRoute exact path={`${path}/dashboardHome`}>
+                           <AdminRoute exact path={`${path}`}>
                               <DashBoardHome />
-                           </AdminRoute>
-                           <AdminRoute path={`${path}/makeAdmin`}>
-                              <MakeAdmin></MakeAdmin>
                            </AdminRoute>
                         </>
                      ) : (
@@ -310,6 +307,12 @@ const Dashboard = () => {
                                  <EditorRoute path={`${path}/manageAllOrders`}>
                                     <ManageAllOrders></ManageAllOrders>
                                  </EditorRoute>
+                                 <EditorRoute exact path={`${path}`}>
+                                    <DashBoardHome />
+                                 </EditorRoute>
+                                 <EditorRoute path={`${path}/addproduct`}>
+                                    <AddProduct />
+                                 </EditorRoute>
                               </>
                            ) : (
                               ""
@@ -318,12 +321,11 @@ const Dashboard = () => {
                      )}
 
                      <Route exact path={`${path}`}>
-                        {admin ? (
-                           <DashBoardHome />
-                        ) : (
-                           //  <DashboardHomeUser></DashboardHomeUser>
-                           <>{editor ? <DashBoardHome /> : ""}</>
-                        )}
+                        {admin ? <DashBoardHome /> : ""}
+                     </Route>
+
+                     <Route exact path={`${path}`}>
+                        {editor ? <DashBoardHome /> : ""}
                      </Route>
 
                      <Route exact path={`${path}/pay`}></Route>

@@ -156,7 +156,7 @@ const DashBoardHome = () => {
                   <Col className="flex justify-content-center align-items-center py-5">
                      <h1 className="user-info text-black text-[25px] flex justify-content-center align-items-center flex-col">
                         REVENUES
-                        <h1 className="pt-2 ">$ 25,54448518</h1>
+                        <h1 className="pt-2 ">$ 25,544,485,18</h1>
                      </h1>
                   </Col>
                </div>
