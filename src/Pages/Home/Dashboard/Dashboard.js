@@ -1,16 +1,25 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { NavLink, useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+import { MdAddCircleOutline, MdDashboard, MdLogout, MdModeEditOutline, MdProductionQuantityLimits} from "react-icons/md";
+import { RiAdminFill } from "react-icons/ri";
+
 import useAuth from './../../../hooks/useAuth';
 import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import Home from './../Home/Home';
+// import Home from './../Home/Home';
 import "./Dashboard.css"
 import ManageAllOrders from './ManageAllOrders/ManageAllOrders';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import AddProduct from './AddProduct/AddProduct';
-import ManageProduct from './ManageProduct/ManageProduct';
+
 import MakeEditor from './MakeEditor/MakeEditor';
+import AdminRoute from './AdminRoute/AdminRoute';
+import ManageProduct from './ManageProduct/ManageProduct';
+
+import { SiManageiq } from 'react-icons/si';
+import DashBoardHome from './DashBoardHome/DashBoardHome';
+
 
 const Dashboard = () => {
       const { user, admin, logout } = useAuth();
@@ -32,14 +41,23 @@ const Dashboard = () => {
                       {user?.displayName}
                    </h4>
                    <div className="px-[50px] py-[100px] my-5 space-y-5">
+                      <MdDashboard className="d-inline-block text-white" />
                       <NavLink
+                         className="text-white text-decoration-none my-5 pl-2"
+                         to={`${url}/dashboardHome`}
+                      >
+                         Dashboard
+                      </NavLink>
+                      {/* <br />
+                      <br /> */}
+                      {/* <NavLink
                          className="text-white text-decoration-none my-5"
                          to="/home"
                       >
                          Home
-                      </NavLink>
+                      </NavLink> */}
                       <br />
-                      <br />
+
                       {!admin ? (
                          <>
                             <NavLink
@@ -69,54 +87,68 @@ const Dashboard = () => {
                          </>
                       ) : (
                          <>
-                            <NavLink
-                               className="text-white text-decoration-none my-5"
-                               to={`${url}/manageAllOrder`}
-                            >
-                               Manage All Orders
-                            </NavLink>
-                            <br />
-                            <br />
-                            <NavLink
-                               className="text-white text-decoration-none my-5"
-                               to={`${url}/makeAdmin`}
-                            >
-                               Make Admin
-                            </NavLink>
-                            <br />
-                            <br />
-                            <NavLink
-                               className="text-white text-decoration-none my-5"
-                               to={`${url}/makeEditor`}
-                            >
-                               Make Editor
-                            </NavLink>
-                            <br />
-                            <br />
-                            <NavLink
-                               className="text-white text-decoration-none my-5"
-                               to={`${url}/addProduct`}
-                            >
-                               Add Product
-                            </NavLink>
-                            <br />
-                            <br />
-                            <NavLink
-                               className="text-white text-decoration-none my-5"
-                               to={`${url}/manageProduct`}
-                            >
-                               Manage Product
-                            </NavLink>
+                            <div>
+                               <SiManageiq className="d-inline-block text-white" />
+                               <NavLink
+                                  className="text-white text-decoration-none my-5 pl-2"
+                                  to={`${url}/manageAllOrders`}
+                               >
+                                  Manage All Orders
+                               </NavLink>
+                            </div>
+                            <div>
+                               <RiAdminFill className="d-inline-block text-white" />
+                               <NavLink
+                                  className="text-white text-decoration-none my-5 pl-2"
+                                  to={`${url}/makeAdmin`}
+                               >
+                                  Make Admin
+                               </NavLink>
+                            </div>
+
+                            <div>
+                               <MdModeEditOutline className="d-inline-block text-white"></MdModeEditOutline>
+                               <NavLink
+                                  className="text-white text-decoration-none my-5 pl-2"
+                                  to={`${url}/makeEditor`}
+                               >
+                                  Make Editor
+                               </NavLink>
+                            </div>
+
+                            <div>
+                               <MdAddCircleOutline className="d-inline-block text-white" />
+                               <NavLink
+                                  className="text-white text-decoration-none my-5 pl-2"
+                                  to={`${url}/addProduct`}
+                               >
+                                  Add Product
+                               </NavLink>
+                            </div>
+
+                            <div>
+                               <MdProductionQuantityLimits className="d-inline-block text-white"></MdProductionQuantityLimits>
+                               <NavLink
+                                  className="text-white text-decoration-none my-5 pl-2"
+                                  to={`${url}/manageProduct`}
+                               >
+                                  Manage Product
+                               </NavLink>
+                            </div>
+
                             <br />
                             <br />
                          </>
                       )}
-                      <button
-                         onClick={LogOut}
-                         className="border-0 bg-transparent text-white"
-                      >
-                         Logout
-                      </button>
+                      <div>
+                         <MdLogout className="d-inline-block text-white"></MdLogout>
+                         <button
+                            onClick={LogOut}
+                            className="border-0 bg-transparent text-white pl-2"
+                         >
+                            Logout
+                         </button>
+                      </div>
                    </div>
                 </Col>
                 <Col className="m-0 p-0" xs={9} md={10}>
@@ -135,31 +167,44 @@ const Dashboard = () => {
                    )}
 
                    <Switch>
-                      <Route path="/home">
-                         <Home />
+                      <AdminRoute path={`${path}/manageAllOrders`}>
+                         <ManageAllOrders></ManageAllOrders>
+                      </AdminRoute>
+                      <AdminRoute path={`${path}/addproduct`}>
+                         <AddProduct />
+                      </AdminRoute>
+                      <AdminRoute path={`${path}/makeAdmin`}>
+                         <MakeAdmin></MakeAdmin>
+                      </AdminRoute>
+                      <AdminRoute path={`${path}/makeEditor`}>
+                         <MakeEditor></MakeEditor>
+                      </AdminRoute>
+                      <AdminRoute path={`${path}/manageProduct`}>
+                         <ManageProduct />
+                      </AdminRoute>
+
+                      <Route exact path={`${path}/dashboardHome`}>
+                         {/* {admin ? (
+                           <DashBoardHome/>
+                           
+                         ) : (
+                            
+                              //  <DashboardHomeUser></DashboardHomeUser>
+                              ""
+                            
+                         )} */}
+                         <DashBoardHome />
                       </Route>
-                      <Route exact path={path}>
-                         {/* {admin ? <ManageAllOrder /> : <Order />} */}
-                      </Route>
-                      <Route path={`${path}/payment`}>
-                         {/* <Payment /> */}
-                      </Route>
-                      <Route path={`${path}/review`}>{/* <Review /> */}</Route>
-                      <Route path={`${path}/manageAllOrder`}>
-                         <ManageAllOrders />
-                      </Route>
-                      <Route path={`${path}/makeAdmin`}>
-                         {<MakeAdmin />}
-                      </Route>
-                      <Route path={`${path}/makeEditor`}>
-                         {<MakeEditor/>}
-                      </Route>
-                      <Route path={`${path}/addProduct`}>
-                         {<AddProduct />}
-                      </Route>
-                      <Route path={`${path}/manageProduct`}>
-                         {<ManageProduct />}
-                      </Route>
+
+                      <Route exact path={`${path}/pay`}></Route>
+                      {/* <Route exact path={`${path}/dashboardHome`}>
+                         <DashBoardHome />
+                      </Route> */}
+                      <Route exact path={`${path}/myorders`}></Route>
+                      <Route exact path={`${path}/review`}></Route>
+                      <AdminRoute path={`${path}/makeAdmin`}>
+                         <MakeAdmin></MakeAdmin>
+                      </AdminRoute>
                    </Switch>
                 </Col>
              </Row>
