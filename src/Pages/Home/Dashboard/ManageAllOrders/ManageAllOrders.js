@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import api from "../../../../hooks/useAxios";
+import useAuth from './../../../../hooks/useAuth';
 
 const ManageAllOrders = () => {
    const [details, setDetails] = useState([]);
    const [control, setControl] = useState(false);
+   const { editor, admin } = useAuth();
  
 
 
@@ -81,11 +83,14 @@ const ManageAllOrders = () => {
                            Status
                         </th>
                         <th className="text-white text-[1rem] w-[300px]">
-                           Update
+                           Action
                         </th>
-                        <th className="text-white text-[1rem] w-[300px]">
+                        {
+                            editor ? ("") : <> { admin ? ( <th className="text-white text-[1rem] w-[300px]">
                            Remove
-                        </th>
+                        </th>) : "" } </>
+                        }
+                       
                      </tr>
                      <>
                         {details?.map((info, index) => {
@@ -119,17 +124,29 @@ const ManageAllOrders = () => {
                                           handleUpdate(info._id);
                                        }}
                                     >
-                                       Edit
+                                       Update
                                     </button>
                                  </td>
-                                 <td className="text-[15px] font-bold">
-                                    <button
-                                       className="py-[3px] px-[20px] bg-black text-white rounded-[10px]"
-                                       onClick={() => handleDelete(info._id)}
-                                    >
-                                       Delete
-                                    </button>
-                                 </td>
+                                 {editor ? (
+                                    ""
+                                 ) : (
+                                    <>
+                                       {admin ? (
+                                          <td className="text-[15px] font-bold">
+                                             <button
+                                                className="py-[3px] px-[20px] bg-black text-white rounded-[10px]"
+                                                onClick={() =>
+                                                   handleDelete(info._id)
+                                                }
+                                             >
+                                                Delete
+                                             </button>
+                                          </td>
+                                       ) : (
+                                          ""
+                                       )}
+                                    </>
+                                 )}
                               </tr>
                            );
                         })}
