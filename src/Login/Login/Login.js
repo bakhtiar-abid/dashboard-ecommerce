@@ -80,6 +80,7 @@ const Login = () => {
                             placeholder="Email"
                             name="email"
                             onChange={handleOnChange}
+                            required
                          />
                          <br />
 
@@ -98,8 +99,10 @@ const Login = () => {
                                Forgot Password?
                             </button>
                             {authError ? (
-                               <div className="text-danger pt-2">
-                                  <h1>{authError}</h1>
+                               <div>
+                                  <small className="text-danger">
+                                     {authError}
+                                  </small>
                                </div>
                             ) : (
                                ""

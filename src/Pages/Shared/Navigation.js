@@ -3,18 +3,14 @@ import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
 import logo from "../../images/logo.png"
 import { Link } from "react-router-dom";
 import useAuth from './../../hooks/useAuth';
-import {
-   useHistory,
-   useLocation,
-} from "react-router-dom";
+
 
 const Navigation = () => {
     const { user, logout } = useAuth();
     
-      const location = useLocation();
-      const history = useHistory();
+     
      const LogOut = () => {
-        logout(location, history);
+        logout();
      };
     return (
        <div>
@@ -97,7 +93,7 @@ const Navigation = () => {
                    ) : (
                       <div className="">
                          <Nav.Link as={Link} to="/login" className="text-white">
-                            LOGIN/REGISTER
+                            SIGN IN/REGISTER
                          </Nav.Link>
                       </div>
                    )}

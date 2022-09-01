@@ -9,12 +9,12 @@
 .login1{
     width: 700px !important;
 }
-.submit-btn1{
+.submit-btn{
     background-color: rgb(17, 22, 6) !important;
     font-weight: 600 !important;
     color: white !important;
 }
-.login-form-left1{
+.login-form-left{
     background-color: rgba(7, 9, 15, 0.822);
     height: 458px;
     border-bottom-left-radius: 10px;
