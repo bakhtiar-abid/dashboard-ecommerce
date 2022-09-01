@@ -17,7 +17,7 @@ function App() {
       <div className="App">
          <AuthProvider>
             <Router>
-               <Navigation />
+              
                <Switch>
                  
                   <PrivateRoute path="/dashboard"> <Dashboard/> </PrivateRoute>

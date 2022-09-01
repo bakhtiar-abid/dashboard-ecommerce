@@ -7,6 +7,7 @@ import MoonLoader from "react-spinners/MoonLoader";
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navigation from '../../Shared/Navigation';
 
 const NewArrivals = () => {
     const [details, setDetails] = useState([]);
@@ -31,6 +32,7 @@ const NewArrivals = () => {
    }, []);
     return (
        <div>
+         <Navigation/>
           <div className="new-arrivals relative">
              <Container>
                 <h1

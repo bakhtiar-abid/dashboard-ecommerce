@@ -6,10 +6,15 @@ import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import Home from './../Home/Home';
 import "./Dashboard.css"
+import ManageAllOrders from './ManageAllOrders/ManageAllOrders';
+import MakeAdmin from './MakeAdmin/MakeAdmin';
+import AddProduct from './AddProduct/AddProduct';
+import ManageProduct from './ManageProduct/ManageProduct';
+import MakeEditor from './MakeEditor/MakeEditor';
 
 const Dashboard = () => {
-      const { admin, logout } = useAuth();
-      let { user, path, url } = useRouteMatch();
+      const { user, admin, logout } = useAuth();
+      let {  path, url } = useRouteMatch();
 
       const location = useLocation();
       const history = useHistory();
@@ -19,14 +24,14 @@ const Dashboard = () => {
       };
 
     return (
-       <div>
+       <div style={{ backgroundColor: "#f8f9fa" }}>
           <Container fluid>
              <Row>
                 <Col className="offcanvus-container p-2" xs={3} md={2}>
                    <h4 className="text-white text-center my-2 text-capitalize">
                       {user?.displayName}
                    </h4>
-                   <div className="text-center my-5">
+                   <div className="px-[50px] py-[100px] my-5 space-y-5">
                       <NavLink
                          className="text-white text-decoration-none my-5"
                          to="/home"
@@ -49,7 +54,7 @@ const Dashboard = () => {
                                className="text-white text-decoration-none my-5"
                                to={`${url}/payment`}
                             >
-                               pay
+                               Pay
                             </NavLink>
                             <br />
                             <br />
@@ -77,6 +82,14 @@ const Dashboard = () => {
                                to={`${url}/makeAdmin`}
                             >
                                Make Admin
+                            </NavLink>
+                            <br />
+                            <br />
+                            <NavLink
+                               className="text-white text-decoration-none my-5"
+                               to={`${url}/makeEditor`}
+                            >
+                               Make Editor
                             </NavLink>
                             <br />
                             <br />
@@ -110,12 +123,11 @@ const Dashboard = () => {
                    {!admin ? (
                       <div className="text-center w-100 py-3 dashboard-navbar">
                          <h5 className="fw-bold m-0 text-uppercase">
-                            {" "}
                             Your orders
                          </h5>
                       </div>
                    ) : (
-                      <div className="text-center w-100 py-3 dashboard-navbar">
+                      <div className="text-center w-100 py-3 dashboard-navbar drop-shadow-xl">
                          <h5 className="fw-bold m-0 text-uppercase">
                             Dashboard
                          </h5>
@@ -132,20 +144,21 @@ const Dashboard = () => {
                       <Route path={`${path}/payment`}>
                          {/* <Payment /> */}
                       </Route>
-                      <Route path={`${path}/review`}>
-                         {/* <Review /> */}
-                      </Route>
+                      <Route path={`${path}/review`}>{/* <Review /> */}</Route>
                       <Route path={`${path}/manageAllOrder`}>
-                         {/* <ManageAllOrder /> */}
+                         <ManageAllOrders />
                       </Route>
                       <Route path={`${path}/makeAdmin`}>
-                         {/* <MakeAdmin /> */}
+                         {<MakeAdmin />}
+                      </Route>
+                      <Route path={`${path}/makeEditor`}>
+                         {<MakeEditor/>}
                       </Route>
                       <Route path={`${path}/addProduct`}>
-                         {/* <AddProduct /> */}
+                         {<AddProduct />}
                       </Route>
                       <Route path={`${path}/manageProduct`}>
-                         {/* <ManageAllProduct /> */}
+                         {<ManageProduct />}
                       </Route>
                    </Switch>
                 </Col>
@@ -156,3 +169,5 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
