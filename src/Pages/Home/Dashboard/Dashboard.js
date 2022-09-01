@@ -38,16 +38,27 @@ const Dashboard = () => {
              <Row>
                 <Col className="offcanvus-container p-2" xs={3} md={2}>
                    <h4 className="text-white text-center my-2 text-capitalize">
-                      {user?.displayName}
+                      {admin ? (
+                         <h1 className="text-[30px]"> Admin </h1>
+                      ) : (
+                         user?.displayName
+                      )}
                    </h4>
                    <div className="px-[50px] py-[100px] my-5 space-y-5">
-                      <MdDashboard className="d-inline-block text-white" />
-                      <NavLink
-                         className="text-white text-decoration-none my-5 pl-2"
-                         to={`${url}/dashboardHome`}
-                      >
-                         Dashboard
-                      </NavLink>
+                      {admin ? (
+                         <>
+                            <MdDashboard className="d-inline-block text-white" />
+                            <NavLink
+                               className="text-white text-decoration-none my-5 pl-2"
+                               to={`${url}/dashboardHome`}
+                            >
+                               Dashboard
+                            </NavLink>
+                         </>
+                      ) : (
+                         ""
+                      )}
+
                       {/* <br />
                       <br /> */}
                       {/* <NavLink
@@ -93,7 +104,7 @@ const Dashboard = () => {
                                   className="text-white text-decoration-none my-5 pl-2"
                                   to={`${url}/manageAllOrders`}
                                >
-                                  Manage All Orders
+                                  Manage Orders
                                </NavLink>
                             </div>
                             <div>
@@ -183,23 +194,19 @@ const Dashboard = () => {
                          <ManageProduct />
                       </AdminRoute>
 
-                      <Route exact path={`${path}/dashboardHome`}>
-                         {/* {admin ? (
-                           <DashBoardHome/>
-                           
+                      <Route exact path={`${path}`}>
+                         {admin ? (
+                            <DashBoardHome />
                          ) : (
-                            
-                              //  <DashboardHomeUser></DashboardHomeUser>
-                              ""
-                            
-                         )} */}
-                         <DashBoardHome />
+                            //  <DashboardHomeUser></DashboardHomeUser>
+                            ""
+                         )}
                       </Route>
 
                       <Route exact path={`${path}/pay`}></Route>
-                      {/* <Route exact path={`${path}/dashboardHome`}>
+                      <AdminRoute exact path={`${path}/dashboardHome`}>
                          <DashBoardHome />
-                      </Route> */}
+                      </AdminRoute>
                       <Route exact path={`${path}/myorders`}></Route>
                       <Route exact path={`${path}/review`}></Route>
                       <AdminRoute path={`${path}/makeAdmin`}>

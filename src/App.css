@@ -94,3 +94,51 @@ body {
    box-sizing: border-box;
    border-radius: 5px;
 }
+
+
+table {
+   font-family: "Lato", sans-serif;
+
+   /* border-collapse: collapse; */
+   width: 100%;
+   min-width: 90vw;
+}
+
+td,
+th {
+   border: 2px dotted #dddddd;
+   border-left: 0px;
+   border-right: 0px;
+   border-top: 0px;
+   text-align: left;
+   padding: 8px;
+}
+th {
+   border: 0px;
+}
+
+tr:first-child {
+   border: 0px;
+}
+
+tr {
+   background-color: white;
+}
+
+.table-container {
+   overflow-x: scroll;
+   overflow-y: scroll;
+   width: 80vw;
+   /* margin-left: -40px !important; */
+   max-height: 76vh;
+}
+
+.user-info{
+  font-family: Lato;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 36px;
+   line-height: 43px;
+
+   color: #24122b;
+}
