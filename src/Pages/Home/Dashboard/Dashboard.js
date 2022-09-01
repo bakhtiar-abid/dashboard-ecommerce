@@ -50,7 +50,7 @@ const Dashboard = () => {
                             <MdDashboard className="d-inline-block text-white" />
                             <NavLink
                                className="text-white text-decoration-none my-5 pl-2"
-                               to={`${url}/dashboardHome`}
+                               to={`${path}`}
                             >
                                Dashboard
                             </NavLink>
