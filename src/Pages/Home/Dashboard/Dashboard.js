@@ -170,7 +170,7 @@ const Dashboard = () => {
                          </h5>
                       </div>
                    ) : (
-                      <div className="text-center w-100 py-3 dashboard-navbar drop-shadow-xl">
+                      <div className="text-center  w-100 py-3 dashboard-navbar drop-shadow-xl">
                          <h5 className="fw-bold m-0 text-uppercase">
                             Dashboard
                          </h5>

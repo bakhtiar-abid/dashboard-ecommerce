@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-   baseURL: "https://rocky-plateau-24807.herokuapp.com/",
+   baseURL: "http://localhost:5001/",
 });
 
 // https://rocky-plateau-24807.herokuapp.com/

@@ -132,6 +132,13 @@ tr {
    /* margin-left: -40px !important; */
    max-height: 76vh;
 }
+.table-container1 {
+   overflow-x: scroll;
+   overflow-y: scroll;
+   width: 82.5vw;
+   /* margin-left: -40px !important; */
+   max-height: 76vh;
+}
 
 .user-info{
   font-family: Lato;

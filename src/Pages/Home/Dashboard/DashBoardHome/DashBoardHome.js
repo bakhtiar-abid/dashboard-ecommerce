@@ -120,7 +120,7 @@ const DashBoardHome = () => {
    return (
       <div className="py-5 ">
          <Container>
-            <div className="flex  justify-content-around flex-wrap flex-grow-4 md:space-y-4 lg:space-y-0 sm:space-y-3 space-y-3 pb-[100px]">
+            <div className="flex justify-content-around flex-wrap flex-grow-4 md:space-y-4 lg:space-y-0 sm:space-y-3 space-y-3 pb-[100px]">
                <div
                   className="card-info"
                   style={{
@@ -287,9 +287,9 @@ const DashBoardHome = () => {
                         </th>
                      </tr>
                      <>
-                        {details?.map((info) => {
+                        {details?.map((info, index) => {
                            return (
-                              <tr>
+                              <tr key={index}>
                                  <td className="text-[12px] font-bold pl-[30px] ">
                                     {info?.displayName}
                                  </td>
