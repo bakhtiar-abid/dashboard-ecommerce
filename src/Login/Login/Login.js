@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaFacebookF, FaTwitter, FaGofore } from "react-icons/fa";
-import { useForm } from "react-hook-form";
 import useAuth from './../../hooks/useAuth';
 import { Link, useHistory } from "react-router-dom";
 import { useState } from 'react';
@@ -13,7 +12,7 @@ const Login = () => {
      const location = useLocation();
         const [loginData, setLoginData] = useState({});
      const history = useHistory();
-      const { signInWithGoogle, isLoading, loginUser, user, authError } =
+      const { signInWithGoogle,  loginUser, authError } =
          useAuth();
 
        const handleGoogleSignIn = () => {
@@ -40,7 +39,7 @@ const Login = () => {
                    <Row>
                       <Col className="login-form-left p-5" md={5}>
                          <div>
-                            <img className="login-form-logo" src="" />
+                            <img className="login-form-logo" src="" alt='' />
                             <p className="text-white py-4">
                                Login using social media to get quick access
                             </p>

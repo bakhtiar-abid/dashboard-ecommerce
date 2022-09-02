@@ -17,9 +17,7 @@ const MakeAdmin = () => {
    const handleOnBlur = (e) => {
       setEmail(e.target.value);
    };
-   const handleOnBlur1 = () => {
-      setEmail("");
-   };
+  
    const handleAdmin = () => {
       api.put(
          `/users/admin`,

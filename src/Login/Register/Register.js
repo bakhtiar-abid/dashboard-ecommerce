@@ -10,7 +10,7 @@ const Register = () => {
       const [loginData, setLoginData] = useState({});
       const history = useHistory();
       const location = useLocation();
-      const { user, signInWithGoogle, registerUser, isLoading, authError } = useAuth();
+      const { signInWithGoogle, registerUser, authError } = useAuth();
 
       const handleOnBlur = (e) => {
          const field = e.target.name;
@@ -116,7 +116,7 @@ const Register = () => {
                      </Col>
                      <Col className="login-form-left1 p-5" md={5}>
                         <div>
-                           <img className="login-form-logo1" src="" />
+                           <img className="login-form-logo1" src="" alt="" />
                            <p className="text-white py-4">
                               Login using social media to get quick access
                            </p>

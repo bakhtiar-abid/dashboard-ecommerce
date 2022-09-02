@@ -12,7 +12,7 @@ import Navigation from '../../Shared/Navigation';
 const NewArrivals = () => {
     const [details, setDetails] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    console.log(details);
+
 
 
 

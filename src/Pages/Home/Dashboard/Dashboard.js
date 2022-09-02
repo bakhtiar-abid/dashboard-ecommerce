@@ -30,6 +30,8 @@ import ManageProduct from "./ManageProduct/ManageProduct";
 import { SiManageiq } from "react-icons/si";
 import DashBoardHome from "./DashBoardHome/DashBoardHome";
 import EditorRoute from "./EditorRoute/EditorRoute";
+import UserOrders from "./UserOrders/UserOrders";
+import PrivateRoute from './../../../Login/PrivateRoute/PrivateRoute';
 
 const Dashboard = () => {
    const { user, admin, editor, logout } = useAuth();
@@ -84,7 +86,14 @@ const Dashboard = () => {
                                  </NavLink>
                               </>
                            ) : (
-                              ""
+                              <>
+                                 <NavLink
+                                    className="text-white text-decoration-none my-5"
+                                    to={`${path}`}
+                                 >
+                                    My Order
+                                 </NavLink>
+                              </>
                            )}
                         </>
                      )}
@@ -211,17 +220,10 @@ const Dashboard = () => {
                               </>
                            ) : (
                               <>
-                                 <NavLink
-                                    className="text-white text-decoration-none my-5"
-                                    to={`${url}`}
-                                 >
-                                    My Order
-                                 </NavLink>
-                                 <br />
                                  <br />
                                  <NavLink
                                     className="text-white text-decoration-none my-5"
-                                    to={`${url}/payment`}
+                                    to={`${url}/myorders`}
                                  >
                                     Pay
                                  </NavLink>
@@ -315,7 +317,15 @@ const Dashboard = () => {
                                  </EditorRoute>
                               </>
                            ) : (
-                              ""
+                              <>
+                                 {user.email ? (
+                                    <PrivateRoute exact path={`${path}`}>
+                                      <UserOrders/>
+                                    </PrivateRoute>
+                                 ) : (
+                                    ""
+                                 )}
+                              </>
                            )}
                         </>
                      )}
@@ -327,10 +337,13 @@ const Dashboard = () => {
                      <Route exact path={`${path}`}>
                         {editor ? <DashBoardHome /> : ""}
                      </Route>
+                     
 
                      <Route exact path={`${path}/pay`}></Route>
 
-                     <Route exact path={`${path}/myorders`}></Route>
+                     <Route exact path={`${path}/myorders`}>
+                        <UserOrders />
+                     </Route>
                      <Route exact path={`${path}/review`}></Route>
                   </Switch>
                </Col>

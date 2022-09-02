@@ -3,13 +3,13 @@ import { Container } from "react-bootstrap";
 import Swal from "sweetalert2";
 import api from "../../../../hooks/useAxios";
 import useAuth from "./../../../../hooks/useAuth";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const MakeEditor = () => {
-   const [displayName, setDisplayName] = useState("");
+  
    const [email, setEmail] = useState("");
-   const [userEmail, setUserEmail] = useState("");
-   console.log(email);
+
+
 
    const { token } = useAuth();
 

@@ -9,7 +9,6 @@ import api from "../../../../hooks/useAxios";
 import gallery from "../../../../images/gallery-export.svg";
 
 const AddProduct = () => {
-   const [thumbnail, setThumnail] = useState("");
    const [picUploading1, setPicUploading1] = useState(false);
    const [error, setError] = useState("");
 
