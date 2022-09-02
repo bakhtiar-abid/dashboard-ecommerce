@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import logo from "../../images/logo.png";
 import useAuth from "./../../hooks/useAuth";
 
@@ -45,9 +46,12 @@ const Navigation = () => {
                   <Nav.Link as={Link} to="/new-arrivals" className="text-white">
                      SHOP
                   </Nav.Link>
-                  <Nav.Link to="/home" className="text-white">
+                  {/* <Nav.Link as={} to="/home" className="text-white">
+                     
+                  </Nav.Link> */}
+                  <HashLink to="/home#featuredGear" className="text-white">
                      EXPLORE
-                  </Nav.Link>
+                  </HashLink>
                   <>
                      {" "}
                      {admin ? (

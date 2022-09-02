@@ -1,0 +1,8 @@
+.adventure {
+   background-image: url("../../../images/new-one.webp") !important;
+   background-repeat: no-repeat;
+   background-size: cover;
+ 
+   min-height: 834px;
+   background-position: center bottom;
+}

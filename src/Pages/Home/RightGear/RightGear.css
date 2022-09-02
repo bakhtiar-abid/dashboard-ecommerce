@@ -1,0 +1,8 @@
+.right-gear-back {
+   background-image: url("../../../images/new.webp") !important;
+   background-repeat: no-repeat;
+   background-size: cover;
+  
+   min-height: 834px;
+   background-position: center bottom;
+}
