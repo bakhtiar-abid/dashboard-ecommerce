@@ -1,0 +1,33 @@
+.font-style{
+    font-size: 45px;
+    text-transform: uppercase;
+    color: black;
+    margin: 0;
+    font-weight:900;
+    line-height: 1;
+    font: bold;
+}
+
+
+.image-background{
+    background-image: url("../../../images/1.webp") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    min-height: 850px !important;
+    background-position: center center !important;
+}
+.image-background1{
+    background-image: url("../../../images/2.webp") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    min-height:  850px  !important;
+    background-position: center center !important;
+}
+
+.image-background2{
+    background-image: url("../../../images/3.webp") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    min-height:  850px !important;
+    background-position: center center !important;
+}

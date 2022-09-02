@@ -36,7 +36,7 @@ const Banner = () => {
             <div>
                <Link to="/new-arrivals" >
                   <button
-                     className="py-[10px] px-[40px] bg-black border-white border-1"
+                     className="common-button"
                      
                   >
                      <span className="text-white text-[20px]">

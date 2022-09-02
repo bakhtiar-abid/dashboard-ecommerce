@@ -43,7 +43,6 @@ body {
    font-family: "Roboto", sans-serif;
 }
 
-
 .proSidebar {
    overflow-y: scroll;
    scrollbar-width: none;
@@ -95,7 +94,6 @@ body {
    border-radius: 5px;
 }
 
-
 table {
    font-family: "Lato", sans-serif;
 
@@ -140,8 +138,8 @@ tr {
    max-height: 76vh;
 }
 
-.user-info{
-  font-family: Lato;
+.user-info {
+   font-family: Lato;
    font-style: normal;
    font-weight: bold;
    font-size: 36px;
@@ -150,8 +148,20 @@ tr {
    color: #24122b;
 }
 
-.user-input{
-       border: 0.5px solid #cbc7cc;
-    box-sizing: border-box;
-    border-radius: 5px;
+.user-input {
+   border: 0.5px solid #cbc7cc;
+   box-sizing: border-box;
+   border-radius: 5px;
+}
+
+.common-button {
+  
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 40px;
+   padding-left: 40px;
+   background-color: black;
+   border: 1px solid white;
+   color: white;
+   border-radius: 10px;
 }
