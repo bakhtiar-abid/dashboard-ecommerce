@@ -1,21 +1,24 @@
-import React from 'react';
-import Swal from "sweetalert2";
+import { faCircleDot, faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useFormik } from "formik";
-import { useEffect } from 'react';
+import React, { useEffect, useState } from "react";
+import { Accordion, Col, Container, Modal } from "react-bootstrap";
+import { useHistory, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 import api from "../../../hooks/useAxios";
-  import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-  import {  faStar, faCircleDot } from "@fortawesome/free-solid-svg-icons";
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container, Col, Accordion, Modal } from 'react-bootstrap';
-import Navigation from '../../Shared/Navigation';
+import Navigation from "../../Shared/Navigation";
+import useAuth from './../../../hooks/useAuth';
 
 const ProductDetail = () => {
    const { id } = useParams();
    const [detail, setDetails] = useState([]);
-   console.log( "singleDetail", detail);
+   console.log("singleDetail", detail);
+
+   const {user} = useAuth();
 
    const [show, setShow] = useState(false);
+
+   const history = useHistory();
 
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
@@ -26,25 +29,23 @@ const ProductDetail = () => {
          .then((response) => {
             setDetails(response.data);
          })
-         
+
          .catch((error) => {
             console.error("There was an error!", error);
          });
    }, [id]);
 
-
    const [error, setError] = useState("");
 
    const handleForm = useFormik({
       initialValues: {
-        itemName: detail.name? detail.name : "",
-         name: "",
-         email: "",
+         itemName: detail.name ? detail.name : "",
+         name: user.displayName ? user.displayName : "",
+         email: user?.email ? user?.email : "",
          phone: "",
          address: "",
          price: detail.price ? detail.price : "",
-         status: "pending"
-         
+         status: "pending",
       },
       onSubmit: (values) => {
          if (
@@ -54,7 +55,6 @@ const ProductDetail = () => {
             values.address !== "" &&
             values.price !== ""
          ) {
-            
             // setStoreData({ ...storeData});
             api.post("/placeorder", values).then((res) => {
                if (res.data.acknowledged) {
@@ -63,7 +63,7 @@ const ProductDetail = () => {
                      `New Order has been added! `,
                      "success"
                   ).then((res) => {
-                     //  history.push("/pay-salary");
+                      history.push("/dashboard");
                   });
                   setShow(false);
                   setError("");
@@ -85,15 +85,15 @@ const ProductDetail = () => {
       enableReinitialize: true,
    });
 
-//    /* Modal */
-//    function MyVerticallyCenteredModal(props) {
-//       return (
-        
-//       );
-//    }
+   //    /* Modal */
+   //    function MyVerticallyCenteredModal(props) {
+   //       return (
+
+   //       );
+   //    }
    return (
       <>
-      <Navigation/>
+         <Navigation />
          <div>
             <Container className="py-[40px]">
                <div className="row row-cols-lg-2 row-cols-md-2 row-cols-1 g-4">

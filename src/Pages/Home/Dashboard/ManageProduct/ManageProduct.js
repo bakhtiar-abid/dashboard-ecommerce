@@ -47,7 +47,7 @@ const ManageProduct = () => {
       <div className="py-5">
          <Container>
             <div className="user-info flex justify-content-center align-items-center">
-               <h1 className="text-decoration-underline">Manage Product</h1>
+               <h1 className="text-decoration-underline">Manage Products</h1>
             </div>
             <div className="py-5">
                <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 row-cols-sm-1 g-4 ">
