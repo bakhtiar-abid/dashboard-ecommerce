@@ -3,6 +3,7 @@ import Navigation from '../../Shared/Navigation';
 import Adventure from '../Adventure/Adventure';
 import Banner from '../Banner/Banner';
 import FearuredGear from '../FeaturedGear/FearuredGear';
+import ReachOut from '../ReachOut/ReachOut';
 import RightGear from '../RightGear/RightGear';
 import ZipperLess from '../ZipperLess/ZipperLess';
 
@@ -15,6 +16,7 @@ const Home = () => {
             <RightGear/>
             <ZipperLess/>
             <Adventure/>
+            <ReachOut/>
         </div>
     );
 };

@@ -8,7 +8,6 @@
     font: bold;
 }
 
-
 .image-background{
     background-image: url("../../../images/1.webp") !important;
     background-repeat: no-repeat !important;
@@ -31,3 +30,4 @@
     min-height:  850px !important;
     background-position: center center !important;
 }
+

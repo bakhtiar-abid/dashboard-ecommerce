@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
+
 const FearuredGear = () => {
    const [details, setDetails] = useState([]);
    const [isLoading, setIsLoading] = useState(false);
@@ -86,10 +87,11 @@ const FearuredGear = () => {
                      </div>
                   ) : (
                      <>
-                        {details.slice(0, 6).map((detail, index) => {
-                           return (
-                              <>
-                                 
+                        {details
+                           .slice(0, 6)
+                           .map((detail, index) => {
+                              return (
+                                 <>
                                     <Col key={index}>
                                        <Card>
                                           <Card.Img
@@ -105,9 +107,7 @@ const FearuredGear = () => {
                                                    </h1>
                                                 </div>
                                                 <div className="">
-                                                   <Link
-                                                      to={`/new-arrivals`}
-                                                   >
+                                                   <Link to={`/new-arrivals`}>
                                                       <button
                                                          style={{
                                                             background: "black",
@@ -125,10 +125,10 @@ const FearuredGear = () => {
                                           </Card.Body>
                                        </Card>
                                     </Col>
-                                
-                              </>
-                           );
-                        }).reverse()}
+                                 </>
+                              );
+                           })
+                           .reverse()}
                      </>
                   )}
                </div>

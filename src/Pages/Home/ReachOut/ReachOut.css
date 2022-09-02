@@ -1,0 +1,24 @@
+
+
+.reach-background{
+    background-image: url("../../../images/group-shot-reachout.webp") !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    min-height: 600px !important;
+    background-position: center center !important;
+}
+.reach-background1{
+    background-image: url("../../../images/hiker-blog-image.webp") !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    min-height:  600px  !important;
+    background-position: center center !important;
+}
+
+.reach-background2{
+    background-image: url("../../../images/hiker-pack-warranty2.webp") !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    min-height:  600px !important;
+    background-position: center center !important;
+}

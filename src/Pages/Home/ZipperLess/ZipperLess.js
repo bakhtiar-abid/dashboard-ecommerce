@@ -1,5 +1,7 @@
 import React from 'react';
 import { Col, Card } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const zipperLessProduct = [
    {
@@ -36,7 +38,7 @@ const zipperLessProduct = [
 
 const ZipperLess = () => {
     return (
-       <div>
+       <Container fluid>
           <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 row-cols-sm-1 g-4 py-5">
              <>
                 {zipperLessProduct.map((detail, index) => {
@@ -50,10 +52,25 @@ const ZipperLess = () => {
                                   />
                                   <Card.Body>
                                      <Card.Title>{`${detail.name}`}</Card.Title>
-                                     <div className="flex justify-content-between relative">
-                                        <div></div>
-                                        <div className="absolute left-[455px] top-[-28px]">
-                                           <h1 className='font-bold'>Price: ${detail.price}</h1>
+                                     <div className="flex justify-content-between py-5 relative">
+                                        <div className="pt-2">
+                                           <h1 className="font-bold">
+                                              Price: ${detail.price}
+                                           </h1>
+                                        </div>
+                                        <div className="">
+                                           <Link to={"/new-arrivals"} >
+                                              <button
+                                                 style={{
+                                                    background: "black",
+                                                    borderRadius: "10px",
+                                                    color: "white",
+                                                 }}
+                                                 className="py-[2px] px-[10px]"
+                                              >
+                                                 Details
+                                              </button>
+                                           </Link>
                                         </div>
                                      </div>
                                   </Card.Body>
@@ -64,8 +81,9 @@ const ZipperLess = () => {
                    })
                    .reverse()}
              </>
-          </div>
-       </div>
+             </div>
+          </Container>
+      
     );
 };
 

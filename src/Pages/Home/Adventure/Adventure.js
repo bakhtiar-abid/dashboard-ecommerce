@@ -4,10 +4,10 @@ import "./Adventure.css";
 
 const Adventure = () => {
    return (
-      <div className="my-[100px] adventure">
+      <div className="mt-[100px] adventure">
          <Container>
             <div>
-               <h2 className="font-size pt-[100px] ">ADVENTURE WITHIN REACH</h2>
+               <h2 className="font-size pt-[100px] p-[10px]">ADVENTURE WITHIN REACH</h2>
                <p
                   className=""
                   style={{
