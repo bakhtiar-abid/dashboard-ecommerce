@@ -5,6 +5,9 @@ import {
    MdDashboard,
    MdLogout,
    MdModeEditOutline,
+   MdOutlinePayment,
+   MdOutlineReviews,
+   MdPlaylistAdd,
    MdProductionQuantityLimits,
 } from "react-icons/md";
 import { RiAdminFill } from "react-icons/ri";
@@ -87,8 +90,9 @@ const Dashboard = () => {
                               </>
                            ) : (
                               <>
+                                 <MdProductionQuantityLimits className="d-inline-block text-white" />
                                  <NavLink
-                                    className="text-white text-decoration-none my-5"
+                                    className="text-white text-decoration-none my-5 pl-2"
                                     to={`${path}`}
                                  >
                                     My Order
@@ -221,20 +225,39 @@ const Dashboard = () => {
                            ) : (
                               <>
                                  <br />
-                                 <NavLink
-                                    className="text-white text-decoration-none my-5"
-                                    to={`${url}/myorders`}
-                                 >
-                                    Pay
-                                 </NavLink>
+                                 <div>
+                                    <MdPlaylistAdd className="d-inline-block text-white" />
+                                    <NavLink
+                                       className="text-white text-decoration-none my-5 pl-2"
+                                       to={`/new-arrivals`}
+                                    >
+                                       Order Now
+                                    </NavLink>
+                                 </div>
+
                                  <br />
+
+                                 <div>
+                                    <MdOutlinePayment className="d-inline-block text-white" />
+                                    <NavLink
+                                       className="text-white text-decoration-none my-5 pl-2"
+                                       to={`${url}/myorders`}
+                                    >
+                                       Pay
+                                    </NavLink>
+                                 </div>
+
                                  <br />
-                                 <NavLink
-                                    className="text-white text-decoration-none my-5"
-                                    to={`${url}/review`}
-                                 >
-                                    Review
-                                 </NavLink>
+                                 <div>
+                                    <MdOutlineReviews className="d-inline-block text-white" />
+                                    <NavLink
+                                       className="text-white text-decoration-none my-5 pl-2"
+                                       to={`${url}/review`}
+                                    >
+                                       Review
+                                    </NavLink>
+                                 </div>
+
                                  <br />
                                  <br />
                               </>
@@ -320,7 +343,7 @@ const Dashboard = () => {
                               <>
                                  {user.email ? (
                                     <PrivateRoute exact path={`${path}`}>
-                                      <UserOrders/>
+                                       <UserOrders />
                                     </PrivateRoute>
                                  ) : (
                                     ""
@@ -337,7 +360,6 @@ const Dashboard = () => {
                      <Route exact path={`${path}`}>
                         {editor ? <DashBoardHome /> : ""}
                      </Route>
-                     
 
                      <Route exact path={`${path}/pay`}></Route>
 

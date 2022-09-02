@@ -122,7 +122,7 @@ const UserOrders = () => {
                   <Col className="flex justify-content-center align-items-center py-5">
                      <h1 className="user-info text-black text-[25px] flex justify-content-center align-items-center flex-col">
                         YOUR ORDERS
-                        <h1 className="pt-2 ">{details?.length}</h1>
+                        <h1 className="pt-2 ">{details?.length ? details?.length : "Order first!"}</h1>
                      </h1>
                   </Col>
                </div>
@@ -148,7 +148,7 @@ const UserOrders = () => {
                   <Col className="flex justify-content-center align-items-center py-5">
                      <h1 className="user-info text-black text-[25px] flex justify-content-center align-items-center flex-col">
                         ORDER STATUS
-                        <h1 className="pt-2 ">{details[0]?.status}</h1>
+                        <h1 className="pt-2 ">{details[0]?.status ? details[0]?.status : "Order Now" }</h1>
                      </h1>
                   </Col>
                </div>
