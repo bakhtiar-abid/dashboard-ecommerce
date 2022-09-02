@@ -1,17 +1,50 @@
 # **NewBright Ecommerce**
 
 <a  href="https://dashboard-ecommerce-f7a70.web.app/">
-<img  width="100%"  height="120%"  src="https://i.ibb.co/8xJ5c8J/1.png"/>
+<img  width="100%"  height="120%"  src="https://i.ibb.co/PgTd7mp/1.png"/>
 </a>
 
 ## About & Features
 
 **NewBright Ecommerce** is a full-stack e-commerce web site.
 
--  Login system with firebase, private routes and dashboard for admins and users.
--  Users can order services, monitor their orderlist and give a review, delete or update the review.
--  Admin can add services, update and delete services.
--  Admin can add new admins and can change the status of orderlist.
+- Implemented a firebase login system, private routes, and a dashboard for admins and users.
+
+<a  href="https://dashboard-ecommerce-f7a70.web.app/">
+<img  width="100%"  height="100%"  src="https://i.ibb.co/r2rXQKH/7.png"/>
+</a>
+
+-  Users can order products, admin can see their orders and products in Dashboard
+
+<a  href="https://dashboard-ecommerce-f7a70.web.app/">
+<img  width="100%"  height="100%"  src="https://i.ibb.co/FxF64d0/2.png"/>
+</a>
+
+<a  href="https://dashboard-ecommerce-f7a70.web.app/">
+<img  width="100%"  height="100%"  src="https://i.ibb.co/5s4vqtr/8.png"/>
+</a>
+
+-  Admin can manage products, update and delete products.
+
+<a  href="https://dashboard-ecommerce-f7a70.web.app/">
+<img  width="100%"  height="100%"  src="https://i.ibb.co/YcYf4Nq/6.png"/>
+</a>
+
+<a  href="https://dashboard-ecommerce-f7a70.web.app/">
+<img  width="100%"  height="100%"  src="https://i.ibb.co/YcYf4Nq/3.png"/>
+</a>
+
+-  Admin can create new users and can change the status of users as an editor.
+
+<a  href="https://dashboard-ecommerce-f7a70.web.app/">
+<img  width="100%"  height="100%"  src="https://i.ibb.co/vzkZ8z9/4.png"/>
+</a>
+
+- Admin can add a new product
+
+<a  href="https://dashboard-ecommerce-f7a70.web.app/">
+<img  width="100%"  height="100%"  src="https://i.ibb.co/vzkZ8z9/5.png"/>
+</a>
 
 ### Front-end Technology :
 
@@ -33,3 +66,23 @@
 **[Back-end Repository](https://github.com/bakhtiarabid/dashboard-ecommerce-backend)**
 
 <hr/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://i.ibb.co/PgTd7mp/1.png
+https://i.ibb.co/FxF64d0/2.png
+https://i.ibb.co/YcYf4Nq/3.png
+https://i.ibb.co/vzkZ8z9/4.png
+https://i.ibb.co/YhQ4gJz/5.png
+https://i.ibb.co/WPGkntT/6.png
+https://i.ibb.co/r2rXQKH/7.png
