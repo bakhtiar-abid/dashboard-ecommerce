@@ -27,7 +27,7 @@
 -  Admin can manage products, update and delete products.
 
 <a  href="https://dashboard-ecommerce-f7a70.web.app/">
-<img  width="100%"  height="100%"  src="https://i.ibb.co/YcYf4Nq/6.png"/>
+<img  width="100%"  height="100%"  src="https://i.ibb.co/WPGkntT/6.png"/>
 </a>
 
 <a  href="https://dashboard-ecommerce-f7a70.web.app/">
@@ -43,7 +43,7 @@
 - Admin can add a new product
 
 <a  href="https://dashboard-ecommerce-f7a70.web.app/">
-<img  width="100%"  height="100%"  src="https://i.ibb.co/vzkZ8z9/5.png"/>
+<img  width="100%"  height="100%"  src="https://i.ibb.co/YhQ4gJz/5.png"/>
 </a>
 
 ### Front-end Technology :
@@ -79,10 +79,3 @@
 
 
 
-https://i.ibb.co/PgTd7mp/1.png
-https://i.ibb.co/FxF64d0/2.png
-https://i.ibb.co/YcYf4Nq/3.png
-https://i.ibb.co/vzkZ8z9/4.png
-https://i.ibb.co/YhQ4gJz/5.png
-https://i.ibb.co/WPGkntT/6.png
-https://i.ibb.co/r2rXQKH/7.png
