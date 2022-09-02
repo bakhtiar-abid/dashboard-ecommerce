@@ -48,7 +48,7 @@ const MakeEditor = () => {
           loginData.name,
           history
        );
-        Swal.fire("Success!", `New Editor has been added! `, "success").then(
+        Swal.fire("Success!", `New User has been created! `, "success").then(
            (res) => {
               //  history.push("/pay-salary");
            }
@@ -154,7 +154,7 @@ const MakeEditor = () => {
                <form onSubmit={handleEditorSubmit}>
                   <div className="user-info flex justify-content-center align-items-center">
                      <h1 className="text-decoration-underline">
-                        Do you want to create user an editor?
+                        Do you want to make user an editor?
                      </h1>
                   </div>
                   <div className="flex  justify-content-center align-items-center py-5">
