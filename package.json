@@ -26,6 +26,7 @@
       "react-spinners": "^0.13.4",
       "recharts": "^2.1.13",
       "sweetalert2": "^11.4.29",
+      "upload-js": "^1.48.21",
       "web-vitals": "^2.1.4"
    },
    "scripts": {
