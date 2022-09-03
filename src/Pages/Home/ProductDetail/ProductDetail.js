@@ -7,6 +7,7 @@ import { useHistory, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import api from "../../../hooks/useAxios";
 import Navigation from "../../Shared/Navigation";
+import ReachOut from "../ReachOut/ReachOut";
 import useAuth from './../../../hooks/useAuth';
 
 const ProductDetail = () => {
@@ -421,6 +422,9 @@ const ProductDetail = () => {
                      </button>
                   </Modal.Footer>
                </Modal>
+               <br />
+               <br />
+               <ReachOut />
             </Container>
          </div>
       </>

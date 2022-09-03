@@ -10,6 +10,7 @@ import Dashboard from "./Pages/Home/Dashboard/Dashboard";
 import Home from "./Pages/Home/Home/Home";
 import NewArrivals from "./Pages/Home/NewArrivals/NewArrivals";
 import ProductDetail from "./Pages/Home/ProductDetail/ProductDetail";
+import Footer from './Pages/Shared/Footer';
 
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
                      <Home />
                   </Route>
                </Switch>
-               {/* <Footer></Footer> */}
+               <Footer></Footer>
             </Router>
          </AuthProvider>
       </div>

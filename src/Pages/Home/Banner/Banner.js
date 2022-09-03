@@ -33,7 +33,7 @@ const Banner = () => {
                   LABORDAY2022
                </p>
             </div>
-            <div>
+            <div className="pb-[50px]" >
                <Link to="/new-arrivals" >
                   <button
                      className="common-button"

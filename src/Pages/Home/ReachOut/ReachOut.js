@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import img3 from "../../../images/hiker-pack-warranty2.webp"
 import img2 from "../../../images/hiker-blog-image.webp"
 import img1 from "../../../images/group-shot-reachout.webp"

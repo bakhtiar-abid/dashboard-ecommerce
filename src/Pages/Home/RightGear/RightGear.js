@@ -26,15 +26,20 @@ const RightGear = () => {
                   adventure
                </p>
             </div>
-            <div>
-               <button className="common-button">
-                  <span className="text-white text-[20px]">Find Tents</span>
-               </button>
-               <button className="common-button ml-3">
-                  <span className="text-white text-[20px]">
-                     Find Sleeping Bags
-                  </span>
-               </button>
+            <div className="flex flex-wrap">
+               <div className="pb-3">
+                  <button className="common-button">
+                     <span className="text-white text-[20px]">Find Tents</span>
+                  </button>
+               </div>
+
+               <div className="lg:pl-3 ">
+                  <button className="common-button  ">
+                     <span className="text-white text-[20px]">
+                        Find Sleeping Bags
+                     </span>
+                  </button>
+               </div>
             </div>
          </Container>
       </div>
