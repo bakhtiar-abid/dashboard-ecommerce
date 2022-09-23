@@ -7,10 +7,12 @@ import Swal from "sweetalert2";
 import { Upload } from "upload-js";
 import api from "../../../../hooks/useAxios";
 import gallery from "../../../../images/gallery-export.svg";
+import { useHistory } from 'react-router-dom';
 
 const AddProduct = () => {
    const [picUploading1, setPicUploading1] = useState(false);
    const [error, setError] = useState("");
+   const history = useHistory();
 
    const [imgaeFile, setImageFile] = useState();
 
@@ -58,7 +60,9 @@ const AddProduct = () => {
                      "Success!",
                      `New Product has been added ! `,
                      "success"
-                  ).then((res) => {});
+                  ).then((res) => {
+                     history.push("/dashboard/manageProduct");
+                  });
 
                   setError("");
                   handleForm.resetForm();
@@ -84,7 +88,7 @@ const AddProduct = () => {
 
    // };
    var upload = new Upload({
-      apiKey: "public_W142hUB4QTvVT2gzGW9WyW38xw6D",
+      apiKey: "public_kW15avfEAnJ37yUGfga5V7UzquzF",
    });
 
    var handleFileRead = upload.createFileInputHandler({
