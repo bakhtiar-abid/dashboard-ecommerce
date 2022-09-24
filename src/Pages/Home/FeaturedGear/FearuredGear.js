@@ -37,7 +37,12 @@ const FearuredGear = () => {
                FEATURED GEAR
             </h1>
             <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1  py-4 g-4 ">
-               <Col>
+               <Col
+                  data-aos="fade-right"
+                  // data-aos-anchor-placement="top-center"
+                  // data-aos-easing="ease-in-out"
+                  data-aos-duration="1000"
+               >
                   <div className="image-background relative">
                      <div>
                         <Link to={"/new-arrivals"}>
@@ -48,7 +53,12 @@ const FearuredGear = () => {
                      </div>
                   </div>
                </Col>
-               <Col>
+               <Col
+                  data-aos="fade-down"
+                  // data-aos-anchor-placement="top-center"
+                  // data-aos-easing="ease-in-out"
+                  data-aos-duration="1000"
+               >
                   <div className="image-background1 relative">
                      <div>
                         <Link to={"/new-arrivals"}>
@@ -59,7 +69,12 @@ const FearuredGear = () => {
                      </div>
                   </div>
                </Col>
-               <Col>
+               <Col
+                  data-aos="fade-left"
+                  // data-aos-anchor-placement="top-center"
+                  // data-aos-easing="ease-in-out"
+                  data-aos-duration="1000"
+               >
                   <div className="image-background2 relative">
                      <div>
                         <Link to={"/new-arrivals"}>
@@ -71,7 +86,13 @@ const FearuredGear = () => {
                   </div>
                </Col>
             </div>
-            <div className="py-4">
+            <div
+               className="py-4"
+               data-aos="fade-top"
+               // data-aos-anchor-placement="top-center"
+               // data-aos-easing="ease-in-out"
+               data-aos-duration="1000"
+            >
                <h1 className="text-[45px] font-[200px] font-style">
                   NEW ARRIVALS
                </h1>
@@ -92,7 +113,13 @@ const FearuredGear = () => {
                            .map((detail, index) => {
                               return (
                                  <>
-                                    <Col key={index}>
+                                    <Col
+                                       key={index}
+                                       data-aos="fade-top"
+                                       // data-aos-anchor-placement="top-center"
+                                       data-aos-easing="ease-in-out"
+                                       data-aos-duration="1000"
+                                    >
                                        <Card>
                                           <Card.Img
                                              variant="top"

@@ -32,7 +32,7 @@ const Navigation = () => {
                      className="d-inline-block align-top"
                      alt="React Bootstrap logo"
                   />{" "}
-                  <div className="d-inline-block pt-2">
+                  <div className="d-inline-block pt-2" >
                      <span className="">
                         N E W B R I G H T <br />E C O M M E R C E
                      </span>

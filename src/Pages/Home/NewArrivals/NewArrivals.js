@@ -32,7 +32,7 @@ const NewArrivals = () => {
    }, []);
     return (
        <div>
-         <Navigation/>
+          <Navigation />
           <div className="new-arrivals relative">
              <Container>
                 <h1
@@ -334,12 +334,18 @@ const NewArrivals = () => {
                       </Accordion>
                    </Col>
                    {/* Product Details List */}
-                   <Col sm={8}>
+                   <Col
+                      sm={8}
+                      
+                   >
                       <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 row-cols-sm-1 g-4 ">
                          {isLoading ? (
-                            <div className="pt-[20px]" style={{
-                              paddingLeft: "50%"
-                            }} >
+                            <div
+                               className="pt-[20px]"
+                               style={{
+                                  paddingLeft: "50%",
+                               }}
+                            >
                                <MoonLoader loading size={80} />
                             </div>
                          ) : (
@@ -347,8 +353,14 @@ const NewArrivals = () => {
                                {details.map((detail, index) => {
                                   return (
                                      <>
-                                        <Col key={index}>
-                                           <Card>
+                                        <Col>
+                                           <Card
+                                              key={index}
+                                              data-aos="zoom-in"
+                                              // data-aos-anchor-placement="top-center"
+                                              data-aos-easing="ease-in-out"
+                                              data-aos-duration="1000"
+                                           >
                                               <Card.Img
                                                  variant="top"
                                                  src={`${detail.img}`}

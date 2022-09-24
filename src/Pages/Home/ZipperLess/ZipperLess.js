@@ -44,7 +44,13 @@ const ZipperLess = () => {
                 {zipperLessProduct.map((detail, index) => {
                       return (
                          <>
-                            <Col key={index}>
+                            <Col
+                               key={index}
+                               data-aos="fade-top"
+                               // data-aos-anchor-placement="top-center"
+                               data-aos-easing="ease-in-out"
+                               data-aos-duration="2500"
+                            >
                                <Card>
                                   <Card.Img
                                      variant="top"
@@ -59,7 +65,7 @@ const ZipperLess = () => {
                                            </h1>
                                         </div>
                                         <div className="">
-                                           <Link to={"/new-arrivals"} >
+                                           <Link to={"/new-arrivals"}>
                                               <button
                                                  style={{
                                                     background: "black",

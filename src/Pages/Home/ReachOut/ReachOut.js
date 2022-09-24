@@ -9,8 +9,17 @@ import "./ReachOut.css"
 const ReachOut = () => {
     return (
        <Container fluid className="py-5">
-          <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 ">
-             <Col>
+          <div
+             className="row row-cols-lg-3 row-cols-md-2 row-cols-1 "
+             data-aos="fade-top"
+              data-aos-duration="1000"
+          >
+             <Col
+
+             // data-aos-anchor-placement="top-center"
+             //  data-aos-easing="ease-in-out"
+             //  data-aos-duration="1000"
+             >
                 <div className="">
                    <img src={img1} width={"600px"} alt="" />
                 </div>

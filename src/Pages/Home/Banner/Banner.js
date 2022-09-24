@@ -13,8 +13,14 @@ const Banner = () => {
 
    return (
       <div className="top-banner">
-         <Container>
+         <Container
+            data-aos="fade-down"
+            // data-aos-anchor-placement="top-center"
+            // data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+         >
             {/* Top Banner Section Start */}
+
             <div>
                {" "}
                <h2 className="font-size pt-[600px] ">
@@ -33,12 +39,9 @@ const Banner = () => {
                   LABORDAY2022
                </p>
             </div>
-            <div className="pb-[50px]" >
-               <Link to="/new-arrivals" >
-                  <button
-                     className="common-button"
-                     
-                  >
+            <div className="pb-[50px]">
+               <Link to="/new-arrivals">
+                  <button className="common-button">
                      <span className="text-white text-[20px]">
                         Shop New Arrivals
                      </span>
