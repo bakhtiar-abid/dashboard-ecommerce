@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-   baseURL: "https://dashboard-ecommerce-backend.onrender.com/",
+   baseURL: "https://rocky-plateau-24807.herokuapp.com/",
 });
 
 // https://rocky-plateau-24807.herokuapp.com/
