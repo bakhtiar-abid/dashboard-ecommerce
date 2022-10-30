@@ -1,9 +1,12 @@
 import React from "react";
-import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Form, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import logo from "../../images/logo.png";
 import useAuth from "./../../hooks/useAuth";
+import "bootstrap/js/src/collapse.js";
+
+
 
 const Navigation = () => {
    const { user, admin, editor, logout } = useAuth();
@@ -12,20 +15,10 @@ const Navigation = () => {
       logout();
    };
    return (
-      <div>
-         <Navbar
-            className=""
-            style={{
-               backgroundColor: "#241f1f",
-            }}
-            //  bg="dark"
-            variant="dark"
-            collapseOnSelect
-            expand="lg"
-            sticky="top"
-         >
+      <>
+         <Navbar expand="lg" bg="dark" variant="dark">
             <Container>
-               <Navbar.Brand href="/home">
+               <Navbar.Brand style={{ paddingRight: "700px" }}>
                   <img
                      src={logo}
                      width="75"
@@ -38,22 +31,40 @@ const Navigation = () => {
                      </span>
                   </div>
                </Navbar.Brand>
-               <Navbar.Toggle />
-               <Navbar.Collapse className="justify-content pl-[10px]">
-                  <Nav.Link as={Link} to="/home" className="text-white">
-                     HOME
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/new-arrivals" className="text-white">
-                     SHOP
-                  </Nav.Link>
-                  {/* <Nav.Link as={} to="/home" className="text-white">
-                     
-                  </Nav.Link> */}
-                  <HashLink to="/home#featuredGear" className="text-white">
-                     EXPLORE
-                  </HashLink>
+               <Nav className="me-auto">
+                  <Nav.Item className="pr-5">
+                     <Nav.Link
+                        eventKey="1"
+                        as={Link}
+                        to="/home"
+                        className="text-white"
+                     >
+                        HOME
+                     </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item className="pr-5">
+                     <Nav.Link
+                        eventKey="2"
+                        as={Link}
+                        to="/new-arrivals"
+                        className="text-white"
+                     >
+                        SHOP
+                     </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item className="pr-5">
+                     <Nav.Link>
+                        <HashLink
+                           eventKey="3"
+                           to="/home#featuredGear"
+                           className="text-white"
+                        >
+                           EXPLORE
+                        </HashLink>
+                     </Nav.Link>
+                  </Nav.Item>
+
                   <>
-                     {" "}
                      {admin ? (
                         <Nav.Link
                            as={Link}
@@ -91,29 +102,6 @@ const Navigation = () => {
                         </>
                      )}
                   </>
-
-                  {/* {user?.displayName ? (
-                      <Nav.Link to="/myplans" className="text-white">
-                        MYP LANS
-                      </Nav.Link>
-                   ) : (
-                      ""
-                   )}
-                   {user?.displayName ? (
-                      <Nav.Link to="/manageplans" className="text-white">
-                         MANAGE PLANS
-                      </Nav.Link>
-                   ) : (
-                      ""
-                   )}
-                   {user?.displayName ? (
-                      <Nav.Link to="/addplan" className="text-white">
-                         Add A Plan
-                      </Nav.Link>
-                   ) : (
-                      ""
-                   )} */}
-
                   {user?.displayName ? (
                      <Nav.Link
                         className="text-white"
@@ -145,19 +133,13 @@ const Navigation = () => {
                         />
                      </div>
                   </Navbar.Text>
-                  <Form className="d-flex pl-[200px]">
-                     <Form.Control
-                        type="search"
-                        placeholder="Search"
-                        className="me-2"
-                        aria-label="Search"
-                     />
-                     <Button variant="outline-success">Search</Button>
-                  </Form>
-               </Navbar.Collapse>
+               </Nav>
+               {/* <Navbar.Collapse>
+                
+               </Navbar.Collapse> */}
             </Container>
          </Navbar>
-      </div>
+      </>
    );
 };
 
