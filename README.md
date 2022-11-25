@@ -11,7 +11,7 @@
 - Implemented a firebase login system, private routes, and a dashboard for admins and users.
 
 <a  href="https://dashboard-ecommerce-f7a70.web.app/">
-<img  width="100%"  height="100%"  src="https://i.ibb.co/LQCyPLJ/12323.jpg"/>
+<img  width="100%"  height="100%"  src="https://i.ibb.co/r2rXQKH/7.png"/>
 </a>
 
 -  Users can order products, admin can see their orders and products in Dashboard
