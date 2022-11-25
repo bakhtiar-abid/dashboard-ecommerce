@@ -27,7 +27,7 @@
 -  Admin can manage products, update and delete products.
 
 <a  href="https://dashboard-ecommerce-f7a70.web.app/">
-<img  width="100%"  height="100%"  src="https://i.ibb.co/8ddFh5z/6.png"/>
+<img  width="100%"  height="100%"  src="https://i.ibb.co/HrZZCw6/6-1.jpg"/>
 </a>
 
 <a  href="https://dashboard-ecommerce-f7a70.web.app/">
