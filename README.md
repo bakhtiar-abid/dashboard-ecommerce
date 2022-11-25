@@ -1,7 +1,7 @@
 # **NewBright Ecommerce**
 
 <a  href="https://dashboard-ecommerce-f7a70.web.app/">
-<img  width="100%"  height="120%"  src="https://i.ibb.co/PgTd7mp/1.png"/>
+<img  width="100%"  height="120%"  src="https://i.ibb.co/LQCyPLJ/12323.jpg"/>
 </a>
 
 ## About & Features
