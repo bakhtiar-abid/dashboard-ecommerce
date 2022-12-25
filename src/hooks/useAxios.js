@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default axios.create({
-   baseURL: "https://rocky-plateau-24807.herokuapp.com/",
+   baseURL: "https://dashboard-ecommerce-backend-ddp3.vercel.app/",
 });
 
-// https://rocky-plateau-24807.herokuapp.com/
+// https://dashboard-ecommerce-backend-ddp3.vercel.app/
 // http://localhost:5001/

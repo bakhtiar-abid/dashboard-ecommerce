@@ -10,7 +10,7 @@ import ZipperLess from '../ZipperLess/ZipperLess';
 const Home = () => {
     return (
         <div>
-            <Navigation/>
+            {/* <Navigation/> */}
             <Banner/>
             <FearuredGear/>
             <RightGear/>

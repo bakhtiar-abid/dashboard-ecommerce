@@ -1,16 +1,16 @@
-import initializeFirebase from "./../Login/Firebase/firebase.init"
-import { useState, useEffect } from "react";
 import {
-   getAuth,
-   createUserWithEmailAndPassword,
-   signInWithEmailAndPassword,
-   onAuthStateChanged,
    GoogleAuthProvider,
-   signInWithPopup,
-   updateProfile,
+   createUserWithEmailAndPassword,
+   getAuth,
    getIdToken,
+   onAuthStateChanged,
+   signInWithEmailAndPassword,
+   signInWithPopup,
    signOut,
+   updateProfile,
 } from "firebase/auth";
+import { useEffect, useState } from "react";
+import initializeFirebase from "./../Login/Firebase/firebase.init";
 
 // initialize firebase app
 initializeFirebase();
@@ -87,7 +87,6 @@ const useFirebase = () => {
             setUser(user);
             getIdToken(user).then((idToken) => {
                setToken(idToken);
-               
             });
          } else {
             setUser({});
@@ -98,13 +97,17 @@ const useFirebase = () => {
    }, [auth]);
 
    useEffect(() => {
-      fetch(`https://rocky-plateau-24807.herokuapp.com/users/${user.email}`)
+      fetch(
+         `https://dashboard-ecommerce-backend-ddp3.vercel.app/users/${user.email}`
+      )
          .then((res) => res.json())
          .then((data) => setAdmin(data.admin));
    }, [user.email]);
 
    useEffect(() => {
-      fetch(`https://rocky-plateau-24807.herokuapp.com/editor/${user.email}`)
+      fetch(
+         `https://dashboard-ecommerce-backend-ddp3.vercel.app/editor/${user.email}`
+      )
          .then((res) => res.json())
          .then((data) => setEditor(data.editor));
    }, [user.email]);
@@ -122,8 +125,8 @@ const useFirebase = () => {
    };
 
    const saveUser = (email, displayName, method) => {
-      const user = { email, displayName};
-      fetch("https://rocky-plateau-24807.herokuapp.com/users", {
+      const user = { email, displayName };
+      fetch("https://dashboard-ecommerce-backend-ddp3.vercel.app/users", {
          method: method,
          headers: {
             "content-type": "application/json",

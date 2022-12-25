@@ -16,7 +16,16 @@ const Navigation = () => {
    };
    return (
       <>
-         <Navbar expand="lg" bg="dark" variant="dark">
+         <Navbar
+            expand="lg"
+            // bg="dark"
+            variant="dark"
+            collapseOnSelect
+            style={{
+               backgroundColor: "#241f1f",
+            }}
+            sticky="top"
+         >
             <Container>
                <Navbar.Brand style={{ paddingRight: "700px" }}>
                   <img
@@ -31,6 +40,7 @@ const Navigation = () => {
                      </span>
                   </div>
                </Navbar.Brand>
+               <Navbar.Toggle />
                <Nav className="me-auto">
                   <Nav.Item className="pr-5">
                      <Nav.Link
